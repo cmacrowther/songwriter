@@ -8,15 +8,16 @@ const Footer = () => {
   
     return (
       <footer className="footer mt-6 has-background-black has-text-white-ter">
+        <section className="section pb-5 pt-0">
         <div className="content has-background-black has-text-white-ter">
           <div className="container has-background-black has-text-white-ter">
-            <div style={{ maxWidth: "100vw" }} className="columns pb-5">
-              <div className="column is-8">
+            <div className="columns pb-5">
+              <div className="column m-4 is-8-touch is-12-mobile">
                 <p className="has-text-weight-light has-text-grey-light is-size-7">Copyright • <a href="admin">Login</a></p>
               </div>
 
-              <div className="column has-text-right is-4 social">
-                <a title="facebook" href="https://facebook.com">
+              <div className="column m-4 is-12-mobile has-text-right-desktop has-text-left-mobile social">
+                <a title="facebook" className="ml-0" href="https://facebook.com">
                   <img
                     src={facebook}
                     alt="Facebook"
@@ -49,6 +50,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
+        </section>
       </footer>
     );
 };

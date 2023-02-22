@@ -17,24 +17,24 @@ export default function Hero(props) {
     <section class="hero is-medium" style={{backgroundColor: theme_color}}>
       <div class="hero-head">
         <nav class="navbar">
-          <div class="container">
-            <div class="level" style={{width: "100%"}}>
-              <div class="level-left navbar-brand">
-                <a class="navbar-item" style={{color: pickSubtitleColor(theme_color)}}>
-                  <h1 className="has-text-weight-semibold is-size-5">Songwriter.js</h1>
-                </a>
-              </div>
-              <div id="navbarMenuHeroA" class="level-right navbar-menu">
-                <div class="navbar-end">
-                  <span class="navbar-item">
-                    <a class="button has-text-weight-semibold is-info" style={{backgroundColor: shadeColor(theme_color, -10)}}>
-                      <span>Contact</span>
-                    </a>
-                  </span>
+          <section class="section mt-0 mb-0 pt-0 pb-0" style={{width: "100%"}}>
+            <div class="container">
+              <div className="columns">
+                <div className="column p-5 is-12">
+                  <div style={{width: "100%"}}>
+                    <div class="level navbar-brand">
+                      <a class="level-left navbar-item ml-0 pl-0" style={{color: pickSubtitleColor(theme_color)}}>
+                        <h1 className="has-text-weight-semibold is-size-5">Songwriter.js</h1>
+                      </a>
+                      <a class="level-right button has-text-weight-semibold mt-0 is-info" style={{backgroundColor: shadeColor(theme_color, -10)}}>
+                        <span>Contact</span>
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </section>
         </nav>
       </div>
       <div class="hero-body">

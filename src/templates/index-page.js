@@ -18,39 +18,43 @@ export const IndexPageTemplate = ({
   return (
     <div>
       <Hero title={title} subtitle={subtitle} img={heroImage} color={color} />
-      <section className="section mt-5 section--gradient">
-        <div className="container mt-5">
+      <section className="songs section section--gradient">
+        <div className="container">
           <div className="columns is-desktop">
-            <div className="column is-two-thirds-desktop">
+            <div className="column is-two-thirds-desktop m-4">
               <div className="content">
                 <div className="columns"> 
-                  <div className="column pr-5 is-12">
+                  <div className="column is-12">
                     <table className="table is-fullwidth">
                       <thead>
                         <tr>
                           <th className="has-text-weight-bold is-vcentered is-size-5">Latest release</th>
-                          <th className="is-size-7 has-text-grey has-text-weight-normal is-vcentered is-uppercase is-hidden-mobile">Release date</th>
+                          <th className="is-size-7 has-text-grey has-text-weight-normal is-vcentered is-uppercase">
+                            <span className="is-hidden-mobile">
+                              Release date
+                            </span>
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td>
-                            <div class="level is-mobile media">
+                            <div class="album level is-mobile media">
                               <div className="level-left">
                                 <div class="media-left">
-                                  <figure class="image ml-0 mr-0 is-96x96">
+                                  <figure class="album-art image ml-0 mr-0 is-96x96">
                                     <img src={"https://i.scdn.co/image/ab67616d0000b2737aa7bd73fd81e577ef8b74a7"} />
                                   </figure>
                                 </div>
                                 <div class="media-content">
-                                  <p class="title has-text-weight-bold mb-5 is-6">Bring The Whole Hood</p>
-                                  <p class="subtitle has-text-grey is-6">Evvie McKinney</p>
+                                  <p class="title has-text-weight-bold mb-5 is-6 is-6 is-size-7-mobile">Bring The Whole Hood</p>
+                                  <p class="subtitle has-text-grey is-6 is-6 is-size-7-mobile">Evvie McKinney</p>
                                 </div>
                               </div>
                             </div>
                           </td>
                           <td className="is-vcentered is-hidden-mobile">
-                            <p className="subtitle has-text-grey is-size-6">
+                            <p className="subtitle has-text-grey is-size-6 is-6 is-size-7-mobile">
                               Sep 30, 2022
                             </p>
                           </td>
@@ -60,77 +64,81 @@ export const IndexPageTemplate = ({
                   </div>
                 </div>
                 <div className="columns">
-                  <div className="column pr-5 is-12">
+                  <div className="column is-12">
                     <table className="table is-fullwidth">
                       <thead>
                         <tr>
                           <th className="has-text-weight-bold is-vcentered is-size-5">104 songs written</th>
-                          <th className="is-size-7 has-text-grey has-text-weight-normal is-vcentered is-hidden-mobile is-uppercase">Release date</th>
+                          <th className="is-size-7 has-text-grey has-text-weight-normal is-vcentered is-uppercase">
+                            <span className="is-hidden-mobile">
+                              Release date
+                            </span>
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td>
-                            <div class="level is-mobile media">
+                            <div class="album level is-mobile media">
                               <div className="level-left">
                                 <div class="media-left">
-                                  <figure class="image ml-0 mr-0 is-96x96">
+                                  <figure class="album-art image ml-0 mr-0 is-96x96">
                                     <img src={"https://i.scdn.co/image/ab67616d0000b2737aa7bd73fd81e577ef8b74a7"} />
                                   </figure>
                                 </div>
                                 <div class="media-content">
-                                  <p class="title has-text-weight-bold mb-5 is-6">Bring The Whole Hood</p>
-                                  <p class="subtitle has-text-grey is-6">Evvie McKinney</p>
+                                  <p class="title has-text-weight-bold mb-5 is-6 is-size-7-mobile">Bring The Whole Hood</p>
+                                  <p class="subtitle has-text-grey is-6 is-6 is-size-7-mobile">Evvie McKinney</p>
                                 </div>
                               </div>
                             </div>
                           </td>
                           <td className="is-vcentered">
-                            <p className="subtitle has-text-grey is-hidden-mobile is-size-6">
+                            <p className="subtitle has-text-grey is-hidden-mobile is-size-6 is-6 is-size-7-mobile">
                               Sep 30, 2022
                             </p>
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <div class="level is-mobile media">
+                            <div class="album level is-mobile media">
                               <div className="level-left">
                                 <div class="media-left">
-                                  <figure class="image ml-0 mr-0 is-96x96">
+                                  <figure class="album-art image ml-0 mr-0 is-96x96">
                                     <img src={"https://i.scdn.co/image/ab67616d0000b2737aa7bd73fd81e577ef8b74a7"} />
                                   </figure>
                                 </div>
                                 <div class="media-content">
-                                  <p class="title has-text-weight-bold mb-5 is-6">Bring The Whole Hood</p>
-                                  <p class="subtitle has-text-grey is-6">Evvie McKinney</p>
+                                  <p class="title has-text-weight-bold mb-5 is-6 is-6 is-size-7-mobile">Bring The Whole Hood</p>
+                                  <p class="subtitle has-text-grey is-6 is-6 is-size-7-mobile">Evvie McKinney</p>
                                 </div>
                               </div>
                             </div>
                           </td>
                           <td className="is-vcentered">
-                            <p className="subtitle has-text-grey is-hidden-mobile is-size-6">
+                            <p className="subtitle has-text-grey is-hidden-mobile is-size-6 is-6 is-size-7-mobile">
                               Sep 30, 2022
                             </p>
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <div class="level is-mobile media">
+                            <div class="album level is-mobile media">
                               <div className="level-left">
                                 <div class="media-left">
-                                  <figure class="image ml-0 mr-0 is-96x96">
+                                  <figure class="album-art image ml-0 mr-0 is-96x96">
                                     <img src={"https://i.scdn.co/image/ab67616d0000b2737aa7bd73fd81e577ef8b74a7"} />
                                   </figure>
                                 </div>
                                 <div class="media-content">
-                                  <p class="title has-text-weight-bold mb-5 is-6">Bring The Whole Hood</p>
-                                  <p class="subtitle has-text-grey is-6">Evvie McKinney</p>
+                                  <p class="title has-text-weight-bold mb-5 is-6 is-6 is-size-7-mobile">Bring The Whole Hood</p>
+                                  <p class="subtitle has-text-grey is-6 is-6 is-size-7-mobile">Evvie McKinney</p>
                                 </div>
                               </div>
                             </div>
                           </td>
                           <td className="is-vcentered">
-                            <p className="subtitle has-text-grey is-hidden-mobile is-size-6">
+                            <p className="subtitle has-text-grey is-hidden-mobile is-size-6 is-6 is-size-7-mobile">
                               Sep 30, 2022
                             </p>
                           </td>
@@ -151,14 +159,14 @@ export const IndexPageTemplate = ({
               </div>
 
             </div>
-            <div className="column pl-5 is-one-thirds-desktop">
+            <div className="column m-4 is-one-thirds-desktop">
               <div className="block">
                 <h3 className="has-text-weight-bold mt-3 is-size-5">
                   Top artist collaboraters
                 </h3>
               </div>
               <div className="block">
-                <div className="media mb-0 mt-0 is-borderless is-mobile level">
+                <a className="collaborator media mb-0 mt-0 is-borderless is-mobile level">
                   <div className="level-left">
                     <div className="media-left">
                       <figure className="image is-rounded is-48x48">
@@ -166,11 +174,11 @@ export const IndexPageTemplate = ({
                       </figure>
                     </div>
                     <div className="media-content">
-                      <p className="title has-text-weight-bold is-6">Meghan Trainor</p>
+                      <p className="title has-text-weight-bold is-6 has-text-dark">Meghan Trainor</p>
                     </div>
                   </div>
-                </div>
-                <div className="media mb-0 mt-0 is-borderless is-mobile level">
+                </a>
+                <a className="ollaborator media mb-0 mt-0 is-borderless is-mobile level">
                   <div className="level-left">
                     <div className="media-left">
                       <figure className="image is-48x48">
@@ -178,10 +186,10 @@ export const IndexPageTemplate = ({
                       </figure>
                     </div>
                     <div className="media-content">
-                      <p className="title has-text-weight-bold is-6">Common Kings</p>
+                      <p className="title has-text-weight-bold is-6 has-text-dark">Common Kings</p>
                     </div>
                   </div>
-                </div>
+                </a>
               </div>
               <div className="block mt-5 pt-3">
                 <div className="field is-grouped">
@@ -195,7 +203,7 @@ export const IndexPageTemplate = ({
               </div>
               <div className="block mt-5 pt-3">
                 <p className="title has-text-weight-bold is-size-6 pb-1">This page is managed by {title}</p>
-                <p className="subtitle has-text-grey is-size-6">Publishers are working with Spotify to enable songwriter pages. Learn more</p>
+                <p className="subtitle has-text-grey is-size-6">This is an area for content speaking about how to get in contact with the artist.</p>
               </div>
             </div>
           </div>
