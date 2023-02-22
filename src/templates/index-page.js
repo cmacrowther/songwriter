@@ -12,12 +12,13 @@ export const IndexPageTemplate = ({
   title,
   subtitle,
   color,
+  tags
 }) => {
   const heroImage = getImage(image) || image;
 
   return (
     <div>
-      <Hero title={title} subtitle={subtitle} img={heroImage} color={color} />
+      <Hero title={title} subtitle={subtitle} img={heroImage} color={color} tags={tags} />
       <section className="songs section section--gradient">
         <div className="container">
           <div className="columns is-desktop">
@@ -216,13 +217,9 @@ export const IndexPageTemplate = ({
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
-  heading: PropTypes.string,
-  subheading: PropTypes.string,
-  mainpitch: PropTypes.object,
-  description: PropTypes.string,
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array,
-  }),
+  subtitle: PropTypes.string,
+  color: PropTypes.string,
+  tags: PropTypes.array,
 };
 
 const IndexPage = ({ data }) => {
@@ -235,17 +232,10 @@ const IndexPage = ({ data }) => {
         title={frontmatter.title}
         subtitle={frontmatter.subtitle}
         color={frontmatter.color}
+        tags={frontmatter.tags}
       />
     </Layout>
   );
-};
-
-IndexPage.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
-  }),
 };
 
 export default IndexPage;
@@ -262,6 +252,7 @@ export const pageQuery = graphql`
           }
         }
         color
+        tags
       }
     }
   }

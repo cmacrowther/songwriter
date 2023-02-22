@@ -12,6 +12,7 @@ const IndexPagePreview = ({ entry, getAsset }) => {
         title={data.title}
         subtitle={data.subtitle}
         color={data.color}
+        tags={data.tags}
       />
     )
   } else {

@@ -1,7 +1,5 @@
 import React from "react";
-import { GatsbyImage, getSrc  } from "gatsby-plugin-image";
-
-
+import { getSrc  } from "gatsby-plugin-image";
 
 export default function Hero(props) {
   const {
@@ -9,9 +7,10 @@ export default function Hero(props) {
     img,
     title,
     subtitle,
+    tags
   } = props;
 
-  const theme_color = props.color;
+  const theme_color = color;
 
   return (
     <section class="hero is-medium" style={{backgroundColor: theme_color}}>
@@ -61,9 +60,7 @@ export default function Hero(props) {
                 {subtitle}
               </p>
               <div class="tags are-small is-centered">
-                <span class="tag is-info" style={{backgroundColor: shadeColor(theme_color, -10)}}>Guitarist</span>
-                <span class="tag is-info" style={{backgroundColor: shadeColor(theme_color, -10)}}>Songwriter</span>
-                <span class="tag is-info" style={{backgroundColor: shadeColor(theme_color, -10)}}>Singer</span>
+                {tags.map(function (value, index, array) { return (<span class="tag is-info" style={{backgroundColor: shadeColor(theme_color, -10)}}>{value}</span>)})}
               </div>
             </div> 
           </div>
@@ -94,10 +91,8 @@ export default function Hero(props) {
                     <p class="subtitle has-text-weight-light is-size-3-tablet is-size-5-touch" style={{color: pickSubtitleColor(theme_color)}}>
                       {subtitle}
                     </p> 
-                    <div class="tags are-medium ">
-                      <span class="tag is-info" style={{backgroundColor: shadeColor(theme_color, -10)}}>Guitarist</span>
-                      <span class="tag is-info" style={{backgroundColor: shadeColor(theme_color, -10)}}>Songwriter</span>
-                      <span class="tag is-info" style={{backgroundColor: shadeColor(theme_color, -10)}}>Singer</span>
+                    <div class="tags are-medium">
+                      {tags.map(function (value, index, array) { return (<span class="tag is-info" style={{backgroundColor: shadeColor(theme_color, -10)}}>{value}</span>)})}
                     </div>
                   </div>
                 </div>
