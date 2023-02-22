@@ -25,8 +25,8 @@ collections:
           widget: "hidden",
           default: "song",
         }
-      - { label: "Song Name", name: "title", widget: "string" }
-      - { label: "Spotify URL", name: "title", widget: "string" }
+      - { label: "Song Name", name: "song", widget: "string" }
+      - { label: "Spotify URL", name: "url", widget: "string" }
       - { label: "Song File", name: "file", widget: "file" }
 
   - name: "settings"
@@ -46,4 +46,4 @@ collections:
           - { label: "Artist Description", name: "subtitle", widget: "string" }
           - { label: "Artist Image", name: "image", widget: "image" }
           - { label: "Color Palette", name: "color", widget: "color" }
-          - { label: "Tags", name: "select", widget: "list", multiple: true, default: ["Songwriter", "Guitarist", "Singer", "Bassist", "Drummer"] }
+          - { label: "Tags", name: "select", widget: "list", multiple: true, default: ["Songwriter", "Guitarist", "Singer", "Bassist", ] }
