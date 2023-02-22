@@ -1,28 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 
 import Layout from "../components/Layout";
-import Features from "../components/Features";
-import BlogRoll from "../components/BlogRoll";
-import FullWidthImage from "../components/FullWidthImage";
+import Hero from "../components/Hero";
 
 // eslint-disable-next-line
 export const IndexPageTemplate = ({
   image,
   title,
-  heading,
-  subheading,
-  mainpitch,
-  description,
-  intro,
+  subtitle,
+  color,
 }) => {
   const heroImage = getImage(image) || image;
 
   return (
     <div>
-      <FullWidthImage />
+      <Hero title={title} subtitle={subtitle} img={heroImage} color={color} />
       <section className="section mt-5 section--gradient">
         <div className="container mt-5">
           <div className="columns is-desktop">
@@ -199,7 +194,7 @@ export const IndexPageTemplate = ({
                 </div>
               </div>
               <div className="block mt-5 pt-3">
-                <p className="title has-text-weight-bold is-size-6 pb-1">This page is managed by Meghan Trainor</p>
+                <p className="title has-text-weight-bold is-size-6 pb-1">This page is managed by {title}</p>
                 <p className="subtitle has-text-grey is-size-6">Publishers are working with Spotify to enable songwriter pages. Learn more</p>
               </div>
             </div>
@@ -230,11 +225,8 @@ const IndexPage = ({ data }) => {
       <IndexPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}
-        heading={frontmatter.heading}
-        subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
+        subtitle={frontmatter.subtitle}
+        color={frontmatter.color}
       />
     </Layout>
   );
@@ -255,55 +247,14 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
         title
+        subtitle
         image {
           childImageSharp {
             gatsbyImageData(quality: 100, layout: FULL_WIDTH)
           }
         }
-        heading
-        subheading
-        mainpitch {
-          title
-          description
-        }
-        description
-        intro {
-          blurbs {
-            image {
-              childImageSharp {
-                gatsbyImageData(width: 240, quality: 64, layout: CONSTRAINED)
-              }
-            }
-            text
-          }
-          heading
-          description
-        }
+        color
       }
     }
   }
 `;
-
-
-/*
-
-<Features gridItems={intro.blurbs} />
-                  <div className="columns">
-                    <div className="column is-12 has-text-centered">
-                      <Link className="btn" to="/products">
-                        See all products
-                      </Link>
-                    </div>
-                  </div>
-                  <div className="column is-12">
-                    <h3 className="has-text-weight-semibold is-size-2">
-                      Latest stories
-                    </h3>
-                    <BlogRoll />
-                    <div className="column is-12 has-text-centered">
-                      <Link className="btn" to="/blog">
-                        Read more
-                      </Link>
-                    </div>
-                  </div>
-                  */

@@ -13,25 +13,21 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "src/pages/blog"
+  - name: "song"
+    label: "Songs"
+    folder: "src/pages/song"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
     fields:
       - {
           label: "Template Key",
           name: "templateKey",
           widget: "hidden",
-          default: "blog-post",
+          default: "song",
         }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "Featured Post", name: "featuredpost", widget: "boolean" }
-      - { label: "Featured Image", name: "featuredimage", widget: image }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Song Name", name: "title", widget: "string" }
+      - { label: "Spotify URL", name: "title", widget: "string" }
+      - { label: "Song File", name: "file", widget: "file" }
 
   - name: "settings"
     label: "Site Settings"
@@ -46,8 +42,8 @@ collections:
               widget: "hidden",
               default: "index-page",
             }
-          - { label: Artist Name, name: title, widget: string }
-          - { label: Artist Description, name: subtitle, widget: string }
-          - { label: Artist Image, name: image, widget: image }
-          - { label: Color Palette, name: color, widget: color }
-          - { label: Tags, name: tags, widget: list, allow_add: true, default: ["Songwriter"] }
+          - { label: "Artist Name", name: "title", widget: "string" }
+          - { label: "Artist Description", name: "subtitle", widget: "string" }
+          - { label: "Artist Image", name: "image", widget: "image" }
+          - { label: "Color Palette", name: "color", widget: "color" }
+          - { label: "Tags", name: "select", widget: "list", multiple: true, default: ["Songwriter", "Guitarist", "Singer", "Bassist", "Drummer"] }

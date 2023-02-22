@@ -1,33 +1,37 @@
 import React from "react";
+import { GatsbyImage, getSrc  } from "gatsby-plugin-image";
 
-const theme_color = "#796aeb";
 
-export default function FullWidthImage(props) {
+
+export default function Hero(props) {
+  const {
+    color,
+    img,
+    title,
+    subtitle,
+  } = props;
+
+  const theme_color = props.color;
+
   return (
     <section class="hero is-medium" style={{backgroundColor: theme_color}}>
       <div class="hero-head">
         <nav class="navbar">
           <div class="container">
-            <div class="navbar-brand">
-              <a class="navbar-item">
-                <h1>Eventual Logo</h1>
-              </a>
-              <span class="navbar-burger" data-target="navbarMenuHeroA">
-                <span></span>
-                <span></span>
-                <span></span>
-              </span>
-            </div>
-            <div id="navbarMenuHeroA" class="navbar-menu">
-              <div class="navbar-end">
-                <a class="navbar-item has-text-weight-semibold" style={{color: pickSubtitleColor(theme_color)}}>
-                  Home
+            <div class="level" style={{width: "100%"}}>
+              <div class="level-left navbar-brand">
+                <a class="navbar-item" style={{color: pickSubtitleColor(theme_color)}}>
+                  <h1 className="has-text-weight-semibold is-size-5">Songwriter.js</h1>
                 </a>
-                <span class="navbar-item">
-                  <a class="button has-text-weight-semibold is-info" style={{backgroundColor: shadeColor(theme_color, -10)}}>
-                    <span>Download</span>
-                  </a>
-                </span>
+              </div>
+              <div id="navbarMenuHeroA" class="level-right navbar-menu">
+                <div class="navbar-end">
+                  <span class="navbar-item">
+                    <a class="button has-text-weight-semibold is-info" style={{backgroundColor: shadeColor(theme_color, -10)}}>
+                      <span>Contact</span>
+                    </a>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -38,13 +42,23 @@ export default function FullWidthImage(props) {
           <div className="columns level is-hidden-desktop is-mobile is-centered">
             <div className="column is-12 has-text-centered">
               <figure class="image is-128x128 is-inline-block has-text-centered mb-3">
-                <img class="is-rounded" src="https://i.scdn.co/image/ab677762000056b87d2247c2e825d673ec9d47d1" />
+              {img?.url ? (
+                <img
+                  src={img}
+                  className="is-rounded"
+                />
+              ) : (
+                <img
+                  src={getSrc(img)}
+                  className="is-rounded"
+                />
+              )}
               </figure>
               <p class="title has-text-weight-bold is-size-2" style={{color: pickTitleColor(theme_color)}}>
-                Meghan Trainor
+                {title}
               </p>
               <p class="subtitle has-text-weight-light is-size-4" style={{color: pickSubtitleColor(theme_color)}}>
-                This is a subtitle for the artist shown below I do however want this to wrap around. Not sure why it's not currently
+                {subtitle}
               </p>
               <div class="tags are-small is-centered">
                 <span class="tag is-info" style={{backgroundColor: shadeColor(theme_color, -10)}}>Guitarist</span>
@@ -60,15 +74,25 @@ export default function FullWidthImage(props) {
                 <div className="level-left" style={{width: "100%"}}>
                   <div class="media-left pr-4">
                     <figure class="image is-256x256">
-                      <img class="is-rounded" src="https://i.scdn.co/image/ab677762000056b87d2247c2e825d673ec9d47d1" />
+                      {img?.url ? (
+                        <img
+                          src={img}
+                          className="is-rounded"
+                        />
+                      ) : (
+                        <img
+                          src={getSrc(img)}
+                          className="is-rounded"
+                        />
+                      )}
                     </figure>
                   </div>
                   <div class="media-content">
                     <p class="title has-text-weight-bold is-size-1-tablet is-size-3-touch" style={{color: pickTitleColor(theme_color)}}>
-                      Meghan Trainor
+                      {title}
                     </p>
                     <p class="subtitle has-text-weight-light is-size-3-tablet is-size-5-touch" style={{color: pickSubtitleColor(theme_color)}}>
-                      This is a subtitle for the artist
+                      {subtitle}
                     </p> 
                     <div class="tags are-medium ">
                       <span class="tag is-info" style={{backgroundColor: shadeColor(theme_color, -10)}}>Guitarist</span>
