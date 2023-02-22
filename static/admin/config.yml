@@ -27,7 +27,7 @@ collections:
         }
       - { label: "Song Name", name: "song", widget: "string" }
       - { label: "Spotify URL", name: "url", widget: "string" }
-      - { label: "Song File", name: "file", widget: "file" }
+      - { label: "Song File", name: "file", choose_url: false, widget: "file" }
 
   - name: "settings"
     label: "Site Settings"
