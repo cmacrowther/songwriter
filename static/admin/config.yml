@@ -46,4 +46,4 @@ collections:
           - { label: "Artist Description", name: "subtitle", widget: "string" }
           - { label: "Artist Image", name: "image", widget: "image" }
           - { label: "Color Palette", name: "color", widget: "color" }
-          - { label: "Tags", name: "tags", widget: "select", multiple: true, options: ["Songwriter", "Guitarist", "Singer", "Bassist", ] }
+          - { label: "Tags", name: "tags", widget: "select", multiple: true, options: ["Songwriter", "Guitarist", "Singer", "Bassist"] }
