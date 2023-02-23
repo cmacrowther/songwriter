@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {decode as base64_decode, encode as base64_encode} from 'base-64';
 import { graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 import SpotifyData from "../components/SpotifyData";
