@@ -48,9 +48,9 @@ collections:
           - { label: "Color Palette", name: "color", hint: "Theme of the content displayed above the fold", widget: "color" }
           - { label: "Tags", name: "tags", hint: "Tags associated with the artist", widget: "select", required: false, multiple: true, options: ["Songwriter", "Guitarist", "Singer", "Bassist", "Drummer", "Keyboardist", "Pianist", "Orchestra", "Vocalist", "Producer", "Engineer", "Mixing Engineer", "Director", "Mastering Engineer", "Live Sound Engineer", "Editor"] }
           - { label: "Managed By", hint: "Who manages the artist", name: "managed", widget: "string" }
-          - { label: "Email Address", hint: "Email address shown on the page", name: "email", widget: "string" }
+          - { label: "Email Address", hint: "Email address shown on the page", required: false, name: "email", widget: "string" }
           - { label: "Additional Content", hint: "Content displayed under the managed by section", name: "additional", widget: "string", required: false }
-          - { label: "Spotify URL", hint: "URL to link to your Spotify content", name: "spotify", widget: "string" }
-          - { label: "Apple Music URL", hint: "URL to link to your Apple Music content", name: "apple", widget: "string" }
-          - { label: "Instagram URL", hint: "URL to link to your Instagram content", name: "instagram", widget: "string" }
-          - { label: "Bandcamp URL", hint: "URL to link to your Bandcamp content", name: "bandcamp", widget: "string" }
+          - { label: "Spotify URL", hint: "URL to link to your Spotify content", required: false, name: "spotify", widget: "string" }
+          - { label: "Apple Music URL", hint: "URL to link to your Apple Music content", required: false, name: "apple", widget: "string" }
+          - { label: "Instagram URL", hint: "URL to link to your Instagram content", required: false, name: "instagram", widget: "string" }
+          - { label: "Bandcamp URL", hint: "URL to link to your Bandcamp content", required: false, name: "bandcamp", widget: "string" }

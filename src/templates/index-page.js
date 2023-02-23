@@ -74,6 +74,13 @@ export const pageQuery = graphql`
         }
         color
         tags
+        managed
+        email
+        additional
+        spotify
+        apple
+        instagram
+        bandcamp
       }
     }
   }
