@@ -11,8 +11,8 @@ import SongData from "../components/SongData";
 
 /* eslint-disable */
 
-var client_id = process.env.SPOTIFY_CLIENT_ID;
-var client_secret = process.env.SPOTIFY_CLIENT_SECRET;
+var client_id = process.env.GATSBY_SPOTIFY_CLIENT_ID;
+var client_secret = process.env.GATSBY_SPOTIFY_CLIENT_SECRET;
 var spotify_token;
 
 console.log(client_id)
