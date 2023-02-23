@@ -15,6 +15,9 @@ var client_id = process.env.SPOTIFY_CLIENT_ID;
 var client_secret = process.env.SPOTIFY_CLIENT_SECRET;
 var spotify_token;
 
+console.log(client_id)
+console.log(client_secret)
+
 let callApi = async () => {
   const result = await this.getSpotifyApiToken();
   await this.getReq();
