@@ -7,13 +7,16 @@ const IndexPagePreview = ({ entry, getAsset }) => {
 
   if (data) {
     return (
-      <IndexPageTemplate
+      <div>
+        <h1>Can this be viewed</h1>
+        <IndexPageTemplate
         image={getAsset(data.image)}
         title={data.title}
         subtitle={data.subtitle}
         color={data.color}
         tags={data.tags}
-      />
+        />
+      </div>
     )
   } else {
     return <div>Loading...</div>
