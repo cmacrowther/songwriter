@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from 'react-dom';
 import PropTypes from "prop-types";
 import inobounce from "inobounce"
 import { graphql } from "gatsby";
@@ -18,9 +19,17 @@ export const IndexPageTemplate = ({
   tags,
   isCms,
 }) => {
-  const heroImage = getImage(image) || image;
+  
+  if (typeof document !== 'undefined') {
+    inobounce.enable();
+    return renderTemplate(image, title, subtitle, color, tags, isCms);
+  }
 
-  inobounce.enable();
+  return null;
+};
+
+function renderTemplate(image, title, subtitle, color, tags, isCms) {
+  const heroImage = getImage(image) || image;
 
   return (
     <div className="body-scroll">
@@ -36,7 +45,7 @@ export const IndexPageTemplate = ({
       <SpotifyData title={title} isCms={isCms} />
     </div>
   );
-};
+}
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
