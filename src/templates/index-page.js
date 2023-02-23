@@ -5,6 +5,7 @@ import { getImage } from "gatsby-plugin-image";
 import SpotifyData from "../components/SpotifyData";
 import Layout from "../components/Layout";
 import Hero from "../components/Hero";
+import Footer from "../components/Footer";
 
 /* eslint-disable */
 
@@ -14,6 +15,13 @@ export const IndexPageTemplate = ({
   subtitle,
   color,
   tags,
+  managed,
+  additional,
+  email,
+  spotify,
+  apple,
+  instagram,
+  bandcamp,
   isCms,
 }) => {
   const heroImage = getImage(image) || image;
@@ -28,8 +36,23 @@ export const IndexPageTemplate = ({
         :
         <></>
       }
-      <Hero title={title} subtitle={subtitle} img={heroImage} color={color} tags={tags} />
-      <SpotifyData title={title} isCms={isCms} />
+      <Hero 
+        title={title} 
+        subtitle={subtitle} 
+        img={heroImage} 
+        color={color} 
+        tags={tags} />
+      <SpotifyData 
+        title={title} 
+        managed={managed}
+        additional={additional}
+        email={email}
+        isCms={isCms} />
+      <Footer 
+        spotify={spotify}
+        apple={apple}
+        instagram={instagram}
+        bandcamp={bandcamp} />
     </div>
   );
 };
@@ -41,6 +64,12 @@ IndexPageTemplate.propTypes = {
   subtitle: PropTypes.string,
   color: PropTypes.string,
   tags: PropTypes.array,
+  managed: PropTypes.string,
+  email: PropTypes.string,
+  additional: PropTypes.string,
+  color: PropTypes.string,
+  spotify: PropTypes.string,
+  bandcamp: PropTypes.string,
 };
 
 const IndexPage = ({ data }) => {
@@ -54,6 +83,13 @@ const IndexPage = ({ data }) => {
         subtitle={frontmatter.subtitle}
         color={frontmatter.color}
         tags={frontmatter.tags}
+        managed={frontmatter.managed}
+        bandcamp={frontmatter.bandcamp}
+        email={frontmatter.email}
+        additional={frontmatter.additional}
+        spotify={frontmatter.spotify}
+        apple={frontmatter.apple}
+        instagram={frontmatter.instagram}
       />
     </Layout>
   );

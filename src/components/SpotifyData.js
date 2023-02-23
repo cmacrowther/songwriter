@@ -33,7 +33,10 @@ export default class SpotifyData extends Component {
     return this.state.token && !this.props.isCms
       ? 
       <SpotifyApiContext.Provider value={this.state.token}>
-        <SongData title={this.props.title} />
+        <SongData 
+          managed={this.props.managed}
+          additional={this.props.additional}
+          email={this.props.email} />
       </SpotifyApiContext.Provider>
       : 
       <Skeleton />

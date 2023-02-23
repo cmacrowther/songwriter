@@ -8,4 +8,11 @@ tags:
   - Songwriter
   - Singer
   - Guitarist
+managed: Colin Crowther
+additional: This is content!
+email: cmacrowther@gmail.com
+spotify: ye
+apple: ye
+instagram: ye
+bandcamp: ye
 ---

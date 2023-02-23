@@ -180,13 +180,13 @@ export const SongDataTemplate = (props) => {
                     <button className="button is-success has-text-weight-bold is-mobile is-rounded">Listen on Spotify</button>
                   </div>
                   <div className="control">
-                    <a href="mailto:#"><button className="button has-text-weight-bold is-rounded">Contact</button></a>
+                    <a href={ 'mailto:' + props.email }><button className="button has-text-weight-bold is-rounded">Contact</button></a>
                   </div>
                 </div>
               </div>
               <div className="block mt-5 pt-3">
-                <p className="title has-text-weight-bold is-size-6 pb-1">This page is managed by {props.title}</p>
-                <p className="subtitle has-text-grey is-size-6">This is an area for content speaking about how to get in contact with the artist.</p>
+                <p className="title has-text-weight-bold is-size-6 pb-1">This page is managed by { props.managed }</p>
+                <p className="subtitle has-text-grey is-size-6">{ props.additional }</p>
               </div>
             </div>
           </div>
@@ -230,7 +230,16 @@ export default function SongData(props) {
           }
         }
       `}
-      render={(data, count) => <SongDataTemplate title={props.title} color={props.color} data={data} count={count} />}
+      render = {
+        (data, count) => <SongDataTemplate 
+                            title={props.title} 
+                            color={props.color} 
+                            managed={props.managed}
+                            additional={props.additional}
+                            email={props.email}
+                            data={data} 
+                            count={count} />
+      }
     />
   );
 }
