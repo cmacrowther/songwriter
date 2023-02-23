@@ -1,102 +1,69 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { kebabCase } from "lodash";
-import { Helmet } from "react-helmet";
-import { graphql, Link } from "gatsby";
+import {decode as base64_decode, encode as base64_encode} from 'base-64';
+import { graphql } from "gatsby";
+import { getImage } from "gatsby-plugin-image";
+import SpotifyData from "../components/SpotifyData";
 import Layout from "../components/Layout";
-import Content, { HTMLContent } from "../components/Content";
+import Hero from "../components/Hero";
 
-// eslint-disable-next-line
-export const BlogPostTemplate = ({
-  content,
-  contentComponent,
-  description,
-  tags,
+/* eslint-disable */
+
+export const IndexPageTemplate = ({
+  image,
   title,
-  helmet,
+  subtitle,
+  color,
+  tags
 }) => {
-  const PostContent = contentComponent || Content;
+  const heroImage = getImage(image) || image;
 
   return (
-    <section className="section">
-      {helmet || ""}
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <p>{description}</p>
-            <PostContent content={content} />
-            {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
-                <ul className="taglist">
-                  {tags.map((tag) => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-          </div>
-        </div>
-      </div>
-    </section>
+    <div>
+      <Hero title={title} subtitle={subtitle} img={heroImage} color={color} tags={tags} />
+      <SpotifyData title={title} />
+    </div>
   );
 };
 
-BlogPostTemplate.propTypes = {
-  content: PropTypes.node.isRequired,
-  contentComponent: PropTypes.func,
-  description: PropTypes.string,
+IndexPageTemplate.propTypes = {
+  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
-  helmet: PropTypes.object,
+  subtitle: PropTypes.string,
+  color: PropTypes.string,
+  tags: PropTypes.array,
 };
 
-const BlogPost = ({ data }) => {
-  const { markdownRemark: post } = data;
-
+const IndexPage = ({ data }) => {
+  const { frontmatter } = data.markdownRemark;
+  
   return (
     <Layout>
-      <BlogPostTemplate
-        content={post.html}
-        contentComponent={HTMLContent}
-        description={post.frontmatter.description}
-        helmet={
-          <Helmet titleTemplate="%s | Blog">
-            <title>{`${post.frontmatter.title}`}</title>
-            <meta
-              name="description"
-              content={`${post.frontmatter.description}`}
-            />
-          </Helmet>
-        }
-        tags={post.frontmatter.tags}
-        title={post.frontmatter.title}
+      <IndexPageTemplate
+        image={frontmatter.image}
+        title={frontmatter.title}
+        subtitle={frontmatter.subtitle}
+        color={frontmatter.color}
+        tags={frontmatter.tags}
       />
     </Layout>
   );
 };
 
-BlogPost.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.object,
-  }),
-};
-
-export default BlogPost;
+export default IndexPage;
 
 export const pageQuery = graphql`
-  query BlogPostByID($id: String!) {
-    markdownRemark(id: { eq: $id }) {
-      id
-      html
+  query IndexPageTemplate {
+    markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
         title
-        description
+        subtitle
+        image {
+          childImageSharp {
+            gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+          }
+        }
+        color
         tags
       }
     }
