@@ -14,14 +14,15 @@ export const IndexPageTemplate = ({
   title,
   subtitle,
   color,
-  tags
+  tags,
+  isCms,
 }) => {
   const heroImage = getImage(image) || image;
 
   return (
     <div>
       <Hero title={title} subtitle={subtitle} img={heroImage} color={color} tags={tags} />
-      <SpotifyData title={title} />
+      <SpotifyData title={title} isCms={isCms} />
     </div>
   );
 };

@@ -15,6 +15,7 @@ const IndexPagePreview = ({ entry, getAsset }) => {
         subtitle={data.subtitle}
         color={data.color}
         tags={data.tags}
+        isCms={true}
         />
       </div>
     )
