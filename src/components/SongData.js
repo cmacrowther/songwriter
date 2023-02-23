@@ -71,14 +71,14 @@ export const SongDataTemplate = (props) => {
                                   </figure>
                                 </div>
                                 <div className="media-content">
-                                  <p className="title has-text-weight-bold mb-5 is-6 is-6 is-size-7-mobile">{songs?.tracks[0].name}</p>
-                                  <p className="subtitle has-text-grey is-6 is-6 is-size-7-mobile">{songs?.tracks[0].artists[0].name}</p>
+                                  <p className="title has-text-weight-bold mb-5 is-6 is-6 is-size-6-mobile">{songs?.tracks[0].name}</p>
+                                  <p className="subtitle has-text-grey is-6 is-6 is-size-6-mobile">{songs?.tracks[0].artists[0].name}</p>
                                 </div>
                               </div>
                             </div>
                           </td>
                           <td className="is-vcentered is-hidden-mobile">
-                            <p className="subtitle has-text-grey is-size-6 is-6 is-size-7-mobile">
+                            <p className="subtitle has-text-grey is-size-6 is-6 is-size-6-mobile">
                               {songs?.tracks[0].album.release_date}
                             </p>
                           </td>
@@ -114,14 +114,14 @@ export const SongDataTemplate = (props) => {
                                         </figure>
                                       </div>
                                       <div className="media-content">
-                                        <p className="title has-text-weight-bold mb-5 is-6 is-6 is-size-7-mobile">{track.name}</p>
-                                        <p className="subtitle has-text-grey is-6 is-6 is-size-7-mobile">{track.artists[0].name}</p>
+                                        <p className="title has-text-weight-bold mb-5 is-6 is-6 is-size-6-mobile">{track.name}</p>
+                                        <p className="subtitle has-text-grey is-6 is-6 is-size-6-mobile">{track.artists[0].name}</p>
                                       </div>
                                     </div>
                                   </div>
                                 </td>
                                 <td className="is-vcentered is-hidden-mobile">
-                                  <p className="subtitle has-text-grey is-size-6 is-6 is-size-7-mobile">
+                                  <p className="subtitle has-text-grey is-size-6 is-6 is-size-6-mobile">
                                     {track.album.release_date}
                                   </p>
                                 </td>

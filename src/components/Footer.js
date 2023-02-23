@@ -16,7 +16,7 @@ const Footer = () => {
                 <p className="has-text-weight-light has-text-grey-light is-size-7">Copyright • <a href="admin">Login</a></p>
               </div>
 
-              <div className="column m-4 is-12-mobile has-text-right-desktop has-text-left-mobile social">
+              <div className="column m-4 is-10-mobile has-text-right-desktop has-text-left-mobile social">
                 <a title="facebook" className="ml-0" href="https://facebook.com">
                   <img
                     src={facebook}
