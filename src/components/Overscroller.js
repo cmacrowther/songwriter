@@ -20,7 +20,9 @@ export default class Overscroller extends Component {
 
   render() {
     return (
-      <div></div>
+      <div class="refresher">
+        
+      </div>
     )
   }
 }
