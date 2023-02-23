@@ -30,7 +30,7 @@ export default class SpotifyData extends Component {
   }
 
   render() {
-    return this.state.token && !isCms
+    return this.state.token && !this.props.isCms
       ? 
       <SpotifyApiContext.Provider value={this.state.token}>
         <SongData title={this.props.title} />
