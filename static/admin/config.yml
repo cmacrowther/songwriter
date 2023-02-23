@@ -25,9 +25,9 @@ collections:
           widget: "hidden",
           default: "song",
         }
-      - { label: "Song Name", name: "song", widget: "string" }
-      - { label: "Spotify URL", name: "url", widget: "string" }
-      - { label: "Song File", name: "file", choose_url: false, widget: "file" }
+      - { label: "Song Name", name: "song", hint: "Name of the song", widget: "string" }
+      - { label: "Spotify URL", name: "url", hint: "Spotify track URL", widget: "string" }
+      - { label: "Song File", name: "file", hint: "Song file, please upload MP3 only", choose_url: false, widget: "file", required: false, pattern: ['*\.(mp3|MP3)', "Uploaded file must be an MP3"] }
 
   - name: "settings"
     label: "Site Settings"
@@ -42,8 +42,15 @@ collections:
               widget: "hidden",
               default: "index-page",
             }
-          - { label: "Artist Name", name: "title", widget: "string" }
-          - { label: "Artist Description", name: "subtitle", widget: "string" }
-          - { label: "Artist Image", name: "image", widget: "image" }
-          - { label: "Color Palette", name: "color", widget: "color" }
-          - { label: "Tags", name: "tags", widget: "select", multiple: true, options: ["Songwriter", "Guitarist", "Singer", "Bassist"] }
+          - { label: "Artist Name", name: "title", hint: "Name of the artist", widget: "string" }
+          - { label: "Artist Description", name: "subtitle", hint: "Description shown beneath artist name and image", widget: "string" }
+          - { label: "Artist Image", name: "image", hint: "Artist profile picture", widget: "image", required: false }
+          - { label: "Color Palette", name: "color", hint: "Theme of the content displayed above the fold", widget: "color" }
+          - { label: "Tags", name: "tags", hint: "Tags associated with the artist", widget: "select", required: false, multiple: true, options: ["Songwriter", "Guitarist", "Singer", "Bassist", "Drummer", "Keyboardist", "Pianist", "Orchestra", "Vocalist", "Producer", "Engineer", "Mixing Engineer", "Director", "Mastering Engineer", "Live Sound Engineer", "Editor"] }
+          - { label: "Managed By", hint: "Who manages the artist", name: "managed", widget: "string" }
+          - { label: "Email Address", hint: "Email address shown on the page", name: "email", widget: "string" }
+          - { label: "Additional Content", hint: "Content displayed under the managed by section", name: "additional", widget: "string", required: false }
+          - { label: "Spotify URL", hint: "URL to link to your Spotify content", name: "spotify", widget: "string" }
+          - { label: "Apple Music URL", hint: "URL to link to your Apple Music content", name: "apple", widget: "string" }
+          - { label: "Instagram URL", hint: "URL to link to your Instagram content", name: "instagram", widget: "string" }
+          - { label: "Bandcamp URL", hint: "URL to link to your Bandcamp content", name: "bandcamp", widget: "string" }

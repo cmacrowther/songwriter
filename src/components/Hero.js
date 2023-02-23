@@ -27,7 +27,7 @@ export default function Hero(props) {
                       <a className="level-left navbar-item ml-0 pl-0" style={{color: pickSubtitleColor(theme_color)}}>
                         <h1 className="has-text-weight-light is-size-5">Songwriter<FontAwesomeIcon className="pl-1" size="1x" icon={brands('js')} /></h1>
                       </a>
-                      <a href="admin" className="admin-login level-right button has-text-weight-semibold mt-1 is-info" style={{backgroundColor: shadeColor(theme_color, -10) }}>
+                      <a href="/admin" className="admin-login level-right button has-text-weight-semibold mt-1 is-info" style={{backgroundColor: shadeColor(theme_color, -10) }}>
                         <span>Login</span>
                       </a>
                     </div>
@@ -45,11 +45,13 @@ export default function Hero(props) {
               <figure className="image is-128x128 is-inline-block has-text-centered mb-3">
               {img?.url ? (
                 <img
+                  alt="Artist"
                   src={img}
                   className="is-rounded"
                 />
               ) : (
                 <img
+                  alt="Artist"
                   src={getSrc(img)}
                   className="is-rounded"
                 />
@@ -75,11 +77,13 @@ export default function Hero(props) {
                     <figure className="image is-256x256">
                       {img?.url ? (
                         <img
+                          alt="Artist"
                           src={img}
                           className="is-rounded"
                         />
                       ) : (
                         <img
+                          alt="Artist"
                           src={getSrc(img)}
                           className="is-rounded"
                         />
@@ -125,9 +129,9 @@ function shadeColor(color, percent) {
   G = Math.round(G)
   B = Math.round(B)
 
-  var RR = ((R.toString(16).length==1)?"0"+R.toString(16):R.toString(16));
-  var GG = ((G.toString(16).length==1)?"0"+G.toString(16):G.toString(16));
-  var BB = ((B.toString(16).length==1)?"0"+B.toString(16):B.toString(16));
+  var RR = ((R.toString(16).length===1)?"0"+R.toString(16):R.toString(16));
+  var GG = ((G.toString(16).length===1)?"0"+G.toString(16):G.toString(16));
+  var BB = ((B.toString(16).length===1)?"0"+B.toString(16):B.toString(16));
 
   return "#"+RR+GG+BB;
 }

@@ -1,5 +1,5 @@
-import React, { Component, PropTypes } from 'react';
-import {decode as base64_decode, encode as base64_encode} from 'base-64';
+import React, { Component } from 'react';
+import { encode as base64_encode } from 'base-64';
 import { SpotifyApiContext } from 'react-spotify-api';
 import SongData from "../components/SongData";
 import Skeleton from "../components/Skeleton";

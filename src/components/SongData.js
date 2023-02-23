@@ -13,24 +13,18 @@ export const SongDataTemplate = (props) => {
   const [counter, setCounter] = useState(0);
   useEffect(() => { setCounter(itemsPerPage) }, [itemsPerPage] )
 
-  const {
-    color,
-    title,
-  } = props;
-
   const { edges: posts } = props.data.allMarkdownRemark;
 
   const song_ids = [];
   const artists_ids = [];
 
-  posts.map(({ node: post })=>{
-    song_ids.push(post.frontmatter.url.split("track/").pop().split("?")[0]);
-  })
+  posts.map(({ node: post })=>(
+    song_ids.push(post.frontmatter.url.split("track/").pop().split("?")[0])
+  ))
 
   const songs_call = GetTracks(song_ids);
   if (songs_call) {
     songs = songs_call;
-    console.log(songs_call)
     songs_call.tracks.map((track)=>{
       track.artists.map((artist)=>{
         if (!artists_ids.contains(artist.id)) {
@@ -72,7 +66,7 @@ export const SongDataTemplate = (props) => {
                               <div className="level-left">
                                 <div className="media-left">
                                   <figure className="album-art image ml-0 mr-0 is-96x96">
-                                    <img src={songs?.tracks[0].album.images[0].url} />
+                                    <img alt={songs?.tracks[0].name} src={songs?.tracks[0].album.images[0].url} />
                                   </figure>
                                 </div>
                                 <div className="media-content">
@@ -117,12 +111,12 @@ export const SongDataTemplate = (props) => {
                                     <div className="level-left">
                                       <div className="media-left">
                                         <figure className="album-art image ml-0 mr-0 is-96x96">
-                                          <img src={track.album.images[0].url} />
+                                          <img alt={track.name} src={track.album.images[0].url} />
                                         </figure>
                                       </div>
                                       <div className="media-content">
-                                        <p className="title has-text-weight-bold mb-5 is-6 is-6 is-size-6-mobile"><a class="song-link" href={track.external_urls.spotify}>{track.name}</a></p>
-                                        <p className="subtitle has-text-grey is-6 is-6 is-size-6-mobile"><a class="song-link" href={track.artists[0].external_urls.spotify}>{track.artists[0].name}</a></p>
+                                        <p className="title has-text-weight-bold mb-5 is-6 is-6 is-size-6-mobile"><a className="song-link" href={track.external_urls.spotify}>{track.name}</a></p>
+                                        <p className="subtitle has-text-grey is-6 is-6 is-size-6-mobile"><a className="song-link" href={track.artists[0].external_urls.spotify}>{track.artists[0].name}</a></p>
                                       </div>
                                     </div>
                                   </div>
@@ -168,7 +162,7 @@ export const SongDataTemplate = (props) => {
                         <div className="level-left">
                           <div className="media-left">
                             <figure className="image is-rounded is-48x48">
-                              <img className="is-rounded" src={artist.images[0].url} />
+                              <img alt={artist.name} className="is-rounded" src={artist.images[0].url} />
                             </figure>
                           </div>
                           <div className="media-content">
@@ -242,15 +236,15 @@ export default function SongData(props) {
 }
 
 Array.prototype.contains = function(element){
-    return this.indexOf(element) > -1;
+  return this.indexOf(element) > -1;
 };
 
 function GetTracks(song_idsP) {
-  const { data, error, loading } = useTrack(song_idsP)
+  const { data } = useTrack(song_idsP)
   return data;
 }
 
 function GetArtists(artists_idsP) {
-  const { data, error, loading } = useArtist(artists_idsP)
+  const { data } = useArtist(artists_idsP)
   return data;
 }
