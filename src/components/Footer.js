@@ -6,12 +6,12 @@ const Footer = () => {
   
     return (
       <footer className="footer mt-6 has-background-black has-text-white-ter">
-        <section className="section pb-5 pt-0">
+        <section className="footer-scroller section pb-5 pt-0">
         <div className="content has-background-black has-text-white-ter">
           <div className="container has-background-black has-text-white-ter">
             <div className="columns footer-column pb-5">
               <div className="column m-4 is-8-touch is-12-mobile">
-                <p className="has-text-weight-light has-text-grey-light is-size-6">Powered by <a className="project-link" href="#">Songwriter<FontAwesomeIcon className="pl-1" icon={brands('js')} /></a></p>
+                <p className="has-text-weight-light has-text-grey-light is-size-6">Powered by <a className="project-link" href="#">Songwriter<FontAwesomeIcon className="pl-1" size="sm" icon={brands('js')} /></a></p>
               </div>
 
               <div className="column m-4 is-10-mobile has-text-right-desktop has-text-left-mobile social">

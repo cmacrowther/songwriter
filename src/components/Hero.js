@@ -25,7 +25,7 @@ export default function Hero(props) {
                   <div style={{width: "100%"}}>
                     <div className="level navbar-brand">
                       <a className="level-left navbar-item ml-0 pl-0" style={{color: pickSubtitleColor(theme_color)}}>
-                        <h1 className="has-text-weight-light is-size-5">Songwriter<FontAwesomeIcon className="pl-1" icon={brands('js')} /></h1>
+                        <h1 className="has-text-weight-light is-size-5">Songwriter<FontAwesomeIcon className="pl-1" size="1x" icon={brands('js')} /></h1>
                       </a>
                       <a href="admin" className="admin-login level-right button has-text-weight-semibold mt-1 is-info" style={{backgroundColor: shadeColor(theme_color, -10) }}>
                         <span>Login</span>
