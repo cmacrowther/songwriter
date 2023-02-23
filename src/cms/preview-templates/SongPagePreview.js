@@ -1,6 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { IndexPageTemplate } from '../../templates/index-page'
 
 const SongPagePreview = ({ entry, getAsset }) => {
   const data = entry.getIn(['data']).toJS()
@@ -16,4 +14,4 @@ const SongPagePreview = ({ entry, getAsset }) => {
   }
 }
 
-export default IndexPagePreview
+export default SongPagePreview
