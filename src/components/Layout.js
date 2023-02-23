@@ -51,7 +51,6 @@ const TemplateWrapper = ({ children }) => {
       </Helmet>
       <div>{children}</div>
       <Footer />
-      <div className="scroller"></div>
     </div>
   );
 };
