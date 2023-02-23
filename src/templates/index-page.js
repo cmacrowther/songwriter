@@ -22,14 +22,14 @@ export const IndexPageTemplate = ({
   const heroImage = getImage(image) || image;
 
   if (typeof document !== 'undefined') {
-    const scroll = inobounce.isScrollSupported;
+    const scroll = true;
 
     if(scroll) {
       inobounce.enable();
     }
     
     return (
-      <div className={ scroll ? "body-scroll" : "" }>
+      <div>
         {
           isCms?
           <div className="notification mb-0 is-warning has-text-centered">
