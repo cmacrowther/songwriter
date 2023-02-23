@@ -1,13 +1,10 @@
 import React from "react";
-import ReactDOM from 'react-dom';
 import PropTypes from "prop-types";
-import inobounce from "inobounce"
 import { graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 import SpotifyData from "../components/SpotifyData";
 import Layout from "../components/Layout";
 import Hero from "../components/Hero";
-import Overscroller from "../components/Overscroller";
 
 /* eslint-disable */
 
@@ -21,29 +18,20 @@ export const IndexPageTemplate = ({
 }) => {
   const heroImage = getImage(image) || image;
 
-  if (typeof document !== 'undefined') {
-    const scroll = true;
-
-    if(scroll) {
-      inobounce.enable();
-    }
-    
-    return (
-      <div>
-        {
-          isCms?
-          <div className="notification mb-0 is-warning has-text-centered">
-            This is a preview only. Spotify data is unable to load within this preview.
-          </div>
-          :
-          <></>
-        }
-        <Hero title={title} subtitle={subtitle} img={heroImage} color={color} tags={tags} />
-        <SpotifyData title={title} isCms={isCms} />
-      </div>
-    );
-  }
-  return <></>;
+  return (
+    <div className="body-scroll">
+      {
+        isCms?
+        <div className="notification mb-0 is-warning has-text-centered">
+          This is a preview only. Spotify data is unable to load within this preview.
+        </div>
+        :
+        <></>
+      }
+      <Hero title={title} subtitle={subtitle} img={heroImage} color={color} tags={tags} />
+      <SpotifyData title={title} isCms={isCms} />
+    </div>
+  );
 };
 
 
@@ -60,7 +48,6 @@ const IndexPage = ({ data }) => {
   
   return (
     <Layout>
-      <Overscroller />
       <IndexPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}

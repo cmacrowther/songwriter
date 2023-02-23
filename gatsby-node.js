@@ -59,23 +59,3 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     })
   }
 }
-
-exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-    
-  actions.setWebpackConfig({
-    node: {
-      fs: 'empty'
-    }
-  })
-  
-  if(stage === 'build-html'){
-    actions.setWebpackConfig({
-      module: {
-        rules: [{
-          test: /inobounce/,
-          use: loaders.null()
-        }]
-      }
-    })
-  }
-}
