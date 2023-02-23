@@ -19,33 +19,28 @@ export const IndexPageTemplate = ({
   tags,
   isCms,
 }) => {
-  
-  if (typeof document !== 'undefined') {
-    inobounce.enable();
-    return renderTemplate(image, title, subtitle, color, tags, isCms);
-  }
-
-  return null;
-};
-
-function renderTemplate(image, title, subtitle, color, tags, isCms) {
   const heroImage = getImage(image) || image;
 
-  return (
-    <div className="body-scroll">
-      {
-        isCms?
-        <div className="notification mb-0 is-warning has-text-centered">
-          This is a preview only. Spotify data is unable to load within this preview.
-        </div>
-        :
-        <></>
-      }
-      <Hero title={title} subtitle={subtitle} img={heroImage} color={color} tags={tags} />
-      <SpotifyData title={title} isCms={isCms} />
-    </div>
-  );
-}
+  if (typeof document !== 'undefined') {
+    inobounce.enable();
+    return (
+      <div>
+        {
+          isCms?
+          <div className="notification mb-0 is-warning has-text-centered">
+            This is a preview only. Spotify data is unable to load within this preview.
+          </div>
+          :
+          <></>
+        }
+        <Hero title={title} subtitle={subtitle} img={heroImage} color={color} tags={tags} />
+        <SpotifyData title={title} isCms={isCms} />
+      </div>
+    );
+  }
+  return <></>;
+};
+
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
