@@ -5,6 +5,7 @@ import { getImage } from "gatsby-plugin-image";
 import SpotifyData from "../components/SpotifyData";
 import Layout from "../components/Layout";
 import Hero from "../components/Hero";
+import Overscroller from "../components/Overscroller";
 
 /* eslint-disable */
 
@@ -47,6 +48,7 @@ const IndexPage = ({ data }) => {
   
   return (
     <Layout>
+      <Overscroller />
       <IndexPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}
