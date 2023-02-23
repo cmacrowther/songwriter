@@ -20,7 +20,7 @@ export const IndexPageTemplate = ({
   const heroImage = getImage(image) || image;
 
   return (
-    <div>
+    <div style={{ overflow: 'hidden' }}>
       {
         isCms?
         <div className="notification mb-0 is-warning has-text-centered">

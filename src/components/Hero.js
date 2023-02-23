@@ -1,5 +1,7 @@
 import React from "react";
 import { getSrc  } from "gatsby-plugin-image";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { brands } from '@fortawesome/fontawesome-svg-core/import.macro'
 
 export default function Hero(props) {
   const {
@@ -23,10 +25,10 @@ export default function Hero(props) {
                   <div style={{width: "100%"}}>
                     <div className="level navbar-brand">
                       <a className="level-left navbar-item ml-0 pl-0" style={{color: pickSubtitleColor(theme_color)}}>
-                        <h1 className="has-text-weight-semibold is-size-5">Songwriter.js</h1>
+                        <h1 className="has-text-weight-light is-size-5">Songwriter<FontAwesomeIcon className="pl-1" icon={brands('js')} /></h1>
                       </a>
-                      <a className="level-right button has-text-weight-semibold mt-0 is-info" style={{backgroundColor: shadeColor(theme_color, -10)}}>
-                        <span>Contact</span>
+                      <a href="admin" className="admin-login level-right button has-text-weight-semibold mt-1 is-info" style={{backgroundColor: shadeColor(theme_color, -10) }}>
+                        <span>Login</span>
                       </a>
                     </div>
                   </div>

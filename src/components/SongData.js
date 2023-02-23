@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { graphql, StaticQuery } from "gatsby";
 import { useArtist, useTrack } from 'react-spotify-api';
@@ -8,6 +8,10 @@ var songs;
 var artists;
 
 export const SongDataTemplate = (props) => {
+
+  const itemsPerPage = 10;
+  const [counter, setCounter] = useState(0);
+  useEffect(() => { setCounter(itemsPerPage) }, [itemsPerPage] )
 
   const {
     color,
@@ -26,6 +30,7 @@ export const SongDataTemplate = (props) => {
   const songs_call = GetTracks(song_ids);
   if (songs_call) {
     songs = songs_call;
+    console.log(songs_call)
     songs_call.tracks.map((track)=>{
       track.artists.map((artist)=>{
         if (!artists_ids.contains(artist.id)) {
@@ -62,7 +67,7 @@ export const SongDataTemplate = (props) => {
                       </thead>
                       <tbody>
                         <tr>
-                          <td>
+                          <td style={{ minWidth: '500px' }}>
                             <div className="album level is-mobile media">
                               <div className="level-left">
                                 <div className="media-left">
@@ -71,8 +76,8 @@ export const SongDataTemplate = (props) => {
                                   </figure>
                                 </div>
                                 <div className="media-content">
-                                  <p className="title has-text-weight-bold mb-5 is-6 is-6 is-size-6-mobile">{songs?.tracks[0].name}</p>
-                                  <p className="subtitle has-text-grey is-6 is-6 is-size-6-mobile">{songs?.tracks[0].artists[0].name}</p>
+                                  <p className="title has-text-weight-bold mb-5 is-6 is-6 is-size-6-mobile"><a className="song-link" href={songs?.tracks[0].external_urls.spotify}>{songs?.tracks[0].name}</a></p>
+                                  <p className="subtitle has-text-grey is-6 is-6 is-size-6-mobile"><a className="song-link" href={songs?.tracks[0].artists[0].external_urls.spotify}>{songs?.tracks[0].artists[0].name}</a></p>
                                 </div>
                               </div>
                             </div>
@@ -103,9 +108,11 @@ export const SongDataTemplate = (props) => {
                       <tbody>
                         {
                           songs?.tracks.map(function (track, index, array) { 
+
                             return (
+                              index < counter ?
                               <tr>
-                                <td>
+                                <td style={{ minWidth: '500px' }}>
                                   <div className="album level is-mobile media">
                                     <div className="level-left">
                                       <div className="media-left">
@@ -114,8 +121,8 @@ export const SongDataTemplate = (props) => {
                                         </figure>
                                       </div>
                                       <div className="media-content">
-                                        <p className="title has-text-weight-bold mb-5 is-6 is-6 is-size-6-mobile">{track.name}</p>
-                                        <p className="subtitle has-text-grey is-6 is-6 is-size-6-mobile">{track.artists[0].name}</p>
+                                        <p className="title has-text-weight-bold mb-5 is-6 is-6 is-size-6-mobile"><a class="song-link" href={track.external_urls.spotify}>{track.name}</a></p>
+                                        <p className="subtitle has-text-grey is-6 is-6 is-size-6-mobile"><a class="song-link" href={track.artists[0].external_urls.spotify}>{track.artists[0].name}</a></p>
                                       </div>
                                     </div>
                                   </div>
@@ -125,7 +132,7 @@ export const SongDataTemplate = (props) => {
                                     {track.album.release_date}
                                   </p>
                                 </td>
-                              </tr>
+                              </tr> : <></>
                             )
                           })
                         }
@@ -134,15 +141,16 @@ export const SongDataTemplate = (props) => {
                   </div>
                 </div>
               </div>
-
-              <div className="block mt-5 pt-3">
-                <div className="field is-grouped">
-                  <div className="control">
-                    <button className="button is-mobile is-success has-text-weight-bold is-rounded">Show More</button>
+              {
+                counter < songs?.tracks.length ?
+                <div className="block mt-5 pt-3">
+                  <div className="field is-grouped">
+                    <div className="control">
+                      <button className="button is-mobile is-success has-text-weight-bold is-rounded" onClick={() => setCounter(counter + itemsPerPage)}>Show More</button>
+                    </div>
                   </div>
-                </div>
-              </div>
-
+                </div> : <></>
+              }
             </div>
             <div className="column m-4 is-one-thirds-desktop">
               <div className="block">
@@ -151,7 +159,7 @@ export const SongDataTemplate = (props) => {
                 </h3>
               </div>
 
-              <div className="block">
+              <div className="block artist-list">
                 {
                   artists?.artists.map(function (artist, index, array) { 
                     
@@ -178,7 +186,7 @@ export const SongDataTemplate = (props) => {
                     <button className="button is-success has-text-weight-bold is-mobile is-rounded">Listen on Spotify</button>
                   </div>
                   <div className="control">
-                    <button className="button has-text-weight-bold is-rounded">Share</button>
+                    <a href="mailto:#"><button className="button has-text-weight-bold is-rounded">Contact</button></a>
                   </div>
                 </div>
               </div>

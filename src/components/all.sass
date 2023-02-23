@@ -21,11 +21,22 @@ $dimensions: 16 24 32 48 64 96 128 256
 .songs 
   margin-top: 1.5rem !important
 
+.song-link
+  color: inherit
+  z-index: 99
+  &:hover 
+    text-decoration: underline !important
+
 @media (max-width: 768px)
+  .artist-list 
+    padding-left: 10px
   .songs
     margin-top: 0px !important
     margin-bottom: 0px !important
     padding-bottom: 1rem !important
+    padding: 5px !important
+  .footer-column
+    padding: 5px !important
   .album
     .title
       font-size: 0.9rem
@@ -128,7 +139,6 @@ $menu-item-active-background-color:	$kaldi-red-invert
 $menu-list-border-left: 1px solid $kaldi-red-invert
 $menu-label-color: $white-ter
 
-
 .menu-label
   font-size: 1em !important
   text-align: left
@@ -137,15 +147,22 @@ $menu-label-color: $white-ter
   text-align: left
 .social
   padding: 2em
+  .fa-layers
+    svg:first-child
+      &:hover
+        color: #bdb09f
+    svg:second-child
+      &:hover 
+        color: transparent
 .social a
-    padding: .5em .5em .3em .5em
-    border-radius: 1em
-    background-color: $white-ter
-    margin: .5em
-    width: 1em
-    height: 1em
-    vertical-align: middle
-    display: inline
+  color: inherit
+  &:hover
+    color: #bdb09f
+
+.project-link
+  color: hotpink !important
+      
+
 
 // blog roll
 .blog-list-item.is-featured

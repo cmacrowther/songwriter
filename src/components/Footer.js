@@ -1,8 +1,6 @@
 import * as React from "react";
-import facebook from "../img/social/facebook.svg";
-import instagram from "../img/social/instagram.svg";
-import twitter from "../img/social/twitter.svg";
-import vimeo from "../img/social/vimeo.svg";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { solid, brands } from '@fortawesome/fontawesome-svg-core/import.macro'
 
 const Footer = () => {
   
@@ -11,40 +9,35 @@ const Footer = () => {
         <section className="section pb-5 pt-0">
         <div className="content has-background-black has-text-white-ter">
           <div className="container has-background-black has-text-white-ter">
-            <div className="columns pb-5">
+            <div className="columns footer-column pb-5">
               <div className="column m-4 is-8-touch is-12-mobile">
-                <p className="has-text-weight-light has-text-grey-light is-size-7">Copyright • <a href="admin">Login</a></p>
+                <p className="has-text-weight-light has-text-grey-light is-size-6">Powered by <a className="project-link" href="#">Songwriter<FontAwesomeIcon className="pl-1" icon={brands('js')} /></a></p>
               </div>
 
               <div className="column m-4 is-10-mobile has-text-right-desktop has-text-left-mobile social">
-                <a title="facebook" className="ml-0" href="https://facebook.com">
-                  <img
-                    src={facebook}
-                    alt="Facebook"
-                    style={{ width: "1em", height: "1em" }}
-                  />
+                <a className="ml-0" href="#">
+                  <span className="fa-layers fa-fw fa-2x">
+                    <FontAwesomeIcon icon={solid('circle')} />
+                    <FontAwesomeIcon icon={brands('spotify')} color="black" transform="shrink-7" />
+                  </span>
                 </a>
-                <a title="twitter" href="https://twitter.com">
-                  <img
-                    className="fas fa-lg"
-                    src={twitter}
-                    alt="Twitter"
-                    style={{ width: "1em", height: "1em" }}
-                  />
+                <a href="#">
+                  <span className="fa-layers fa-fw fa-2x">
+                    <FontAwesomeIcon icon={solid('circle')} />
+                    <FontAwesomeIcon icon={brands('apple')} color="black" transform="shrink-7" />
+                  </span>
                 </a>
-                <a title="instagram" href="https://instagram.com">
-                  <img
-                    src={instagram}
-                    alt="Instagram"
-                    style={{ width: "1em", height: "1em" }}
-                  />
+                <a href="#">
+                  <span className="fa-layers fa-fw fa-2x">
+                    <FontAwesomeIcon icon={solid('circle')} />
+                    <FontAwesomeIcon icon={brands('instagram')} color="black" transform="shrink-7" />
+                  </span>
                 </a>
-                <a title="vimeo" href="https://vimeo.com">
-                  <img
-                    src={vimeo}
-                    alt="Vimeo"
-                    style={{ width: "1em", height: "1em" }}
-                  />
+                <a href="#">
+                  <span className="fa-layers fa-fw fa-2x">
+                    <FontAwesomeIcon icon={solid('circle')} />
+                    <FontAwesomeIcon icon={brands('bandcamp')} color="black" transform="shrink-7" />
+                  </span>
                 </a>
               </div>
             </div>
