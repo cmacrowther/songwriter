@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import inobounce from "inobounce"
 import { graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 import SpotifyData from "../components/SpotifyData";
@@ -19,8 +20,10 @@ export const IndexPageTemplate = ({
 }) => {
   const heroImage = getImage(image) || image;
 
+  inobounce.enable();
+
   return (
-    <div style={{ overflow: 'hidden' }}>
+    <div className="body-scroll">
       {
         isCms?
         <div className="notification mb-0 is-warning has-text-centered">

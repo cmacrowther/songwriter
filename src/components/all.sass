@@ -14,8 +14,10 @@ $hero-body-padding-medium: 5rem 4.5rem 3rem 4.5rem
 $container-max-width: $widescreen
 $dimensions: 16 24 32 48 64 96 128 256
 
-body
-  overscroll-behavior: contain !important
+.body-scroll 
+  webkit-overflow-scrolling: touch
+  height: 100%
+  overflow: auto
 
 body.refreshing #inbox 
   filter: blur(1px)
