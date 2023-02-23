@@ -32,6 +32,9 @@ $dimensions: 16 24 32 48 64 96 128 256
     .album-art
       width: 50px !important
       height: 50px !important
+  .skeleton .square
+    width: 50px !important
+    height: 50px !important
 
 .media-content 
   overflow-x: visible !important
@@ -170,3 +173,78 @@ $menu-label-color: $white-ter
     text-align: center
     max-width: 70%
     margin: 0 0 1em
+
+.skeleton 
+  padding: 15px
+  width: 100%
+  background: #fff
+  margin-bottom: 20px
+  border-radius: 5px
+  display: flex
+  justify-content: center
+  align-items: center
+
+.skeleton .square 
+  height: 96px
+  width: 96px
+  border-radius: 3px
+  background: rgba(130, 130, 130, 0.2)
+  background: -webkit-gradient(linear, left top, right top, color-stop(8%, rgba(130, 130, 130, 0.2)), color-stop(18%, rgba(130, 130, 130, 0.3)), color-stop(33%, rgba(130, 130, 130, 0.2)))
+  background: linear-gradient(to right, rgba(130, 130, 130, 0.2) 8%, rgba(130, 130, 130, 0.3) 18%, rgba(130, 130, 130, 0.2) 33%)
+  background-size: 800px 100px
+  animation: wave-squares 2s infinite ease-out
+
+.skeleton .line 
+  height: 14px
+  margin-bottom: 8px
+  border-radius: 2px
+  background: rgba(130, 130, 130, 0.2)
+  background: -webkit-gradient(linear, left top, right top, color-stop(8%, rgba(130, 130, 130, 0.2)), color-stop(18%, rgba(130, 130, 130, 0.3)), color-stop(33%, rgba(130, 130, 130, 0.2)))
+  background: linear-gradient(to right, rgba(130, 130, 130, 0.2) 8%, rgba(130, 130, 130, 0.3) 18%, rgba(130, 130, 130, 0.2) 33%)
+  background-size: 800px 100px
+  animation: wave-lines 2s infinite ease-out
+
+.skeleton .line-two 
+  width: 85% !important
+  height: 14px
+  margin-bottom: 8px
+  border-radius: 2px
+  background: rgba(130, 130, 130, 0.2)
+  background: -webkit-gradient(linear, left top, right top, color-stop(8%, rgba(130, 130, 130, 0.2)), color-stop(18%, rgba(130, 130, 130, 0.3)), color-stop(33%, rgba(130, 130, 130, 0.2)))
+  background: linear-gradient(to right, rgba(130, 130, 130, 0.2) 8%, rgba(130, 130, 130, 0.3) 18%, rgba(130, 130, 130, 0.2) 33%)
+  background-size: 800px 100px
+  animation: wave-lines 2s infinite ease-out
+
+.skeleton .line-three
+  width: 75% !important
+  height: 14px
+  margin-bottom: 8px
+  border-radius: 2px
+  background: rgba(130, 130, 130, 0.2)
+  background: -webkit-gradient(linear, left top, right top, color-stop(8%, rgba(130, 130, 130, 0.2)), color-stop(18%, rgba(130, 130, 130, 0.3)), color-stop(33%, rgba(130, 130, 130, 0.2)))
+  background: linear-gradient(to right, rgba(130, 130, 130, 0.2) 8%, rgba(130, 130, 130, 0.3) 18%, rgba(130, 130, 130, 0.2) 33%)
+  background-size: 800px 100px
+  animation: wave-lines 2s infinite ease-out
+
+.skeleton-right 
+  flex: 1
+
+.skeleton-left
+  padding-right: 15px
+
+.circle
+  border-radius: 50% !important
+  height: 46px !important
+  width: 46px !important
+
+@keyframes wave-lines 
+  0% 
+    background-position: -468px 0
+  100% 
+    background-position: 468px 0
+  
+@keyframes wave-squares 
+  0% 
+    background-position: -468px 0
+  100% 
+    background-position: 468px 0 

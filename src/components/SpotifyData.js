@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import {decode as base64_decode, encode as base64_encode} from 'base-64';
 import { SpotifyApiContext } from 'react-spotify-api';
 import SongData from "../components/SongData";
+import Skeleton from "../components/Skeleton";
 
 const client_id = process.env.GATSBY_SPOTIFY_CLIENT_ID;
 const client_secret = process.env.GATSBY_SPOTIFY_CLIENT_SECRET;
@@ -21,16 +22,21 @@ export default class SpotifyData extends Component {
   }
 
   getData() {
-    Token().then(AuthToken => this.setState({token: AuthToken}));
+    Token().then(AuthToken => 
+      setTimeout(() => {
+        this.setState({token: AuthToken})
+      }, 1000)
+    );
   }
 
   render() {
     return this.state.token
-        ? 
-        <SpotifyApiContext.Provider value={this.state.token}>
-          <SongData title={this.props.title} />
-        </SpotifyApiContext.Provider>
-        : <div></div>
+      ? 
+      <SpotifyApiContext.Provider value={this.state.token}>
+        <SongData title={this.props.title} />
+      </SpotifyApiContext.Provider>
+      : 
+      <Skeleton />
   }
 }
 

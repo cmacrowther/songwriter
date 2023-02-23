@@ -28,7 +28,9 @@ export const SongDataTemplate = (props) => {
     songs = songs_call;
     songs_call.tracks.map((track)=>{
       track.artists.map((artist)=>{
-        artists_ids.push(artist.id);
+        if (!artists_ids.contains(artist.id)) {
+          artists_ids.push(artist.id);
+        }
       })
     })
   }
@@ -230,6 +232,10 @@ export default function SongData(props) {
     />
   );
 }
+
+Array.prototype.contains = function(element){
+    return this.indexOf(element) > -1;
+};
 
 function GetTracks(song_idsP) {
   const { data, error, loading } = useTrack(song_idsP)
