@@ -19,10 +19,7 @@ const SongPagePreview = ({ entry, getAsset }) => {
   if(!token) {
     Token().then(credentials => 
       setToken(credentials.access_token)
-    ).then(function() {
-      console.log("this triggered");
-      const forceUpdate = () => React.useState({})[1].bind(null, {}) 
-    });
+    );
   }
 
   if (data) {
@@ -56,14 +53,14 @@ const TrackData = (props) => {
     <div className="card ml-6 mr-6">
       <div className="card-image">
         <figure className="image">
-          <img src={ data.album.images[0].url } alt="Placeholder" />
+          <img src={ data?.album.images[0].url } alt="Placeholder" />
         </figure>
       </div>
       <div className="card-content">
         <div className="media">
           <div className="media-content">
-            <p className="title has-text-weight-bold is-size-3">{ data.name }</p>
-            <p className="subtitle is-4 has-text-weight-light">{ data.artists[0].name }</p>
+            <p className="title has-text-weight-bold is-size-3">{ data?.name }</p>
+            <p className="subtitle is-4 has-text-weight-light">{ data?.artists[0].name }</p>
           </div>
         </div>
         <div className="content has-text-weight-light">
