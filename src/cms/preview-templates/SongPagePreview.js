@@ -6,28 +6,28 @@ const SongPagePreview = ({ entry, getAsset }) => {
 
   if (data) {
     return (
-      <div style={{backgroundColor: '#f4f4f4'}}>
+      <div style={{ backgroundColor: '#f4f4f4', borderBottom: '3px solid #333333;' }}>
         <div className="notification mb-0 is-warning has-text-centered">
           Song data will be populated below once URL has been populated
         </div>
-        <section class="hero is-medium">
-          <div class="hero-body pt-5 has-text-centered">
+        <section class="hero m-6 mt-0 is-medium">
+          <div class="hero-body pt-0 has-text-centered">
             <div class="container">
-              <div class="box">
-              <div class="">
+              <div class="card ml-6 mr-6">
+              <div>
                 <div class="card-image">
-                  <figure class="image is-4by3">
+                  <figure class="image">
                     <img src="https://i.scdn.co/image/ab67616d0000b273a4c23346f7cccfac336e5ebd" alt="Placeholder image" />
                   </figure>
                 </div>
                 <div class="card-content">
                   <div class="media">
                     <div class="media-content">
-                      <p class="title is-3">Chin Up</p>
-                      <p class="subtitle is-4">Heather</p>
+                      <p class="title has-text-weight-bold is-size-3">Chin Up</p>
+                      <p class="subtitle is-4 has-text-weight-light">Heather</p>
                     </div>
                   </div>
-                  <div class="content">
+                  <div class="content has-text-weight-light">
                     <time datetime="2016-1-1">Date Released</time>
                   </div>
                 </div>
