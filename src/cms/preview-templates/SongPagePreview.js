@@ -6,39 +6,29 @@ const SongPagePreview = ({ entry, getAsset }) => {
 
   if (data) {
     return (
-      <div>
+      <div style={{backgroundColor: '#f4f4f4'}}>
         <div className="notification mb-0 is-warning has-text-centered">
-          Song data will be populated below
+          Song data will be populated below once URL has been populated
         </div>
-        <section class="hero is-fullheight">
-          <div class="hero-body has-text-centered">
+        <section class="hero is-medium">
+          <div class="hero-body pt-5 has-text-centered">
             <div class="container">
               <div class="box">
-              <div class="card">
+              <div class="">
                 <div class="card-image">
                   <figure class="image is-4by3">
-                    <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
+                    <img src="https://i.scdn.co/image/ab67616d0000b273a4c23346f7cccfac336e5ebd" alt="Placeholder image" />
                   </figure>
                 </div>
                 <div class="card-content">
                   <div class="media">
-                    <div class="media-left">
-                      <figure class="image is-48x48">
-                        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image" />
-                      </figure>
-                    </div>
                     <div class="media-content">
-                      <p class="title is-4">John Smith</p>
-                      <p class="subtitle is-6">@johnsmith</p>
+                      <p class="title is-3">Chin Up</p>
+                      <p class="subtitle is-4">Heather</p>
                     </div>
                   </div>
-
                   <div class="content">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                    <a href="#">#css</a> <a href="#">#responsive</a>
-                    <br />
-                    <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                    <time datetime="2016-1-1">Date Released</time>
                   </div>
                 </div>
               </div>
