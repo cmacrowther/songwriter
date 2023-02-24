@@ -17,30 +17,46 @@ const Footer = (props) => {
               </div>
 
               <div className="column m-4 is-10-mobile has-text-right-desktop has-text-left-mobile social">
-                <a href={props.spotify} className="ml-0">
-                  <span className="fa-layers fa-fw fa-2x">
-                    <FontAwesomeIcon icon={solid('circle')} />
-                    <FontAwesomeIcon icon={brands('spotify')} color="black" transform="shrink-7" />
-                  </span>
-                </a>
-                <a href={props.apple}>
-                  <span className="fa-layers fa-fw fa-2x">
-                    <FontAwesomeIcon icon={solid('circle')} />
-                    <FontAwesomeIcon icon={brands('apple')} color="black" transform="shrink-7" />
-                  </span>
-                </a>
-                <a href={props.instagram}>
-                  <span className="fa-layers fa-fw fa-2x">
-                    <FontAwesomeIcon icon={solid('circle')} />
-                    <FontAwesomeIcon icon={brands('instagram')} color="black" transform="shrink-7" />
-                  </span>
-                </a>
-                <a href={props.bandcamp}>
-                  <span className="fa-layers fa-fw fa-2x">
-                    <FontAwesomeIcon icon={solid('circle')} />
-                    <FontAwesomeIcon icon={brands('bandcamp')} color="black" transform="shrink-7" />
-                  </span>
-                </a>
+                {
+                  props.spotify ? (
+                    <a href={props.spotify} className="ml-0">
+                      <span className="fa-layers fa-fw fa-2x">
+                        <FontAwesomeIcon icon={solid('circle')} />
+                        <FontAwesomeIcon icon={brands('spotify')} color="black" transform="shrink-7" />
+                      </span>
+                    </a>
+                  ) : <></>
+                }
+                {
+                  props.apple ? (
+                    <a href={props.apple}>
+                      <span className="fa-layers fa-fw fa-2x">
+                        <FontAwesomeIcon icon={solid('circle')} />
+                        <FontAwesomeIcon icon={brands('apple')} color="black" transform="shrink-7" />
+                      </span>
+                    </a>
+                  ) : <></>
+                }
+                {
+                  props.bandcamp ? (
+                    <a href={props.bandcamp}>
+                      <span className="fa-layers fa-fw fa-2x">
+                        <FontAwesomeIcon icon={solid('circle')} />
+                        <FontAwesomeIcon icon={brands('bandcamp')} color="black" transform="shrink-7" />
+                      </span>
+                    </a>
+                  ) : <></>
+                }
+                {
+                  props.instagram ? (
+                    <a href={props.instagram}>
+                      <span className="fa-layers fa-fw fa-2x">
+                        <FontAwesomeIcon icon={solid('circle')} />
+                        <FontAwesomeIcon icon={brands('instagram')} color="black" transform="shrink-7" />
+                      </span>
+                    </a>
+                  ) : <></>
+                }
               </div>
             </div>
           </div>

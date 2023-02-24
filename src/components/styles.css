@@ -5,7 +5,8 @@
   line-height: 1;
   font-family: inherit;
   width: 100%;
-  padding: 10px 15px;
+  margin-top: -10px;
+  padding-right: 15px;
   background-color: #fff;
 }
 .rhap_container:focus:not(:focus-visible) {
@@ -44,7 +45,15 @@
   flex-direction: row-reverse;
 }
 .rhap_horizontal-reverse .rhap_controls-section {
-  margin-right: 8px;
+  position: absolute;
+  left: 0;
+  margin: -33px 0px 0px 54px;
+}
+
+@media (max-width: 768px) {
+  .rhap_horizontal-reverse .rhap_controls-section {
+    margin: -34px 0px 0px 41px;
+  }
 }
 
 .rhap_stacked-reverse {
@@ -67,6 +76,7 @@
   flex: 1 0 auto;
   align-self: center;
   margin: 0 calc(10px + 1%);
+  padding-right: 5px;
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
@@ -76,8 +86,8 @@
 }
 
 .rhap_time {
-  color: #333;
-  font-size: 16px;
+  color: #545454;
+  font-size: 12px;
   user-select: none;
   -webkit-user-select: none;
 }
@@ -162,9 +172,10 @@
 }
 
 .rhap_play-pause-button {
-  font-size: 75px;
-  width: 75px;
-  height: 75px;
+  font-size: 45px;
+  width: 45px;
+  height: 45px;
+  margin: 0px;
 }
 
 .rhap_volume-controls {

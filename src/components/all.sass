@@ -20,26 +20,33 @@ html
   height: 100%
   overflow: hidden
 
-.album-art
-  outline: inherit
-  padding: 0
-  border: 0
-  .control-hover
-    transition: .1s ease
-    opacity: 0
-    position: absolute
-    top: 50%
-    left: 50%
-    transform: translate(-50%, -50%)
-    -ms-transform: translate(-50%, -50%)
-    text-align: center
-  img
-    border-radius: 3px !important
-  &:hover 
-    img
-      filter: brightness(50%)
+.album
+  .album-art
+    outline: inherit
+    padding: 0
+    border: 0
     .control-hover
-      opacity: 1
+      transition: .1s ease
+      opacity: 0
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      -ms-transform: translate(-50%, -50%)
+      text-align: center
+    img
+      border-radius: 3px !important
+    &:hover 
+      img
+        filter: brightness(50%)
+      .control-hover
+        opacity: 1
+  &.is-playing 
+    .album-art
+      img
+        filter: brightness(50%)
+      .control-hover
+        opacity: 0
 
 .song-preview
   backgroundColor: #f4f4f4
@@ -54,12 +61,18 @@ html
   &:hover 
     text-decoration: underline !important
 
+.album-content
+  width: 100%
+
+.album-row
+    .album-column
+      min-width: 500px
+
 @media (max-width: 768px)
-  #audio-bar 
-    margin-top: 15px
-    margin-right: 10px
-  td 
-    min-width: 100% !important
+  .album-row
+    .album-column
+      width: auto
+      min-width: revert
   .artist-list 
     padding-left: 10px
   .songs
@@ -72,6 +85,8 @@ html
   .album
     .title
       font-size: 0.9rem
+    .level-left:
+      width: 100% !important
     .album-art
       width: 72px !important
       height: 72px !important
