@@ -32,16 +32,18 @@ export default class SpotifyData extends Component {
       return
     }
 
-    Token().then(credentials => 
-      setTimeout(() => {
-        if (credentials.access_token) {
-          this.setState({token: credentials.access_token})
-        } else {
-          const preamble = "Error encountered while generating Spotify Token: ";
-          this.setState({error: preamble + credentials.error, description: credentials.error_description})
-        }
-      }, 1000)
-    );
+    if(!this.state.token) {
+      Token().then(credentials => 
+        setTimeout(() => {
+          if (credentials.access_token) {
+            this.setState({token: credentials.access_token})
+          } else {
+            const preamble = "Error encountered while generating Spotify Token: ";
+            this.setState({error: preamble + credentials.error, description: credentials.error_description})
+          }
+        }, 1000)
+      );
+    }
   }
 
   render() {
