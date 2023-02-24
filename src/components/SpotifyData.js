@@ -64,6 +64,7 @@ function renderSongData(props, token) {
   return (
     <SpotifyApiContext.Provider value={token}>
       <SongData 
+        color={props.color}
         managed={props.managed}
         additional={props.additional}
         email={props.email} />

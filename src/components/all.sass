@@ -21,8 +21,25 @@ html
   overflow: hidden
 
 .album-art
+  outline: inherit
+  padding: 0
+  border: 0
+  .control-hover
+    transition: .1s ease
+    opacity: 0
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    -ms-transform: translate(-50%, -50%)
+    text-align: center
   img
     border-radius: 3px !important
+  &:hover 
+    img
+      filter: brightness(50%)
+    .control-hover
+      opacity: 1
 
 .song-preview
   backgroundColor: #f4f4f4
@@ -38,6 +55,9 @@ html
     text-decoration: underline !important
 
 @media (max-width: 768px)
+  #audio-bar 
+    margin-top: 15px
+    margin-right: 10px
   td 
     min-width: 100% !important
   .artist-list 
@@ -277,3 +297,4 @@ $menu-label-color: $white-ter
     background-position: -468px 0
   100% 
     background-position: 468px 0 
+

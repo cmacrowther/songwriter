@@ -24,13 +24,13 @@ export const Skeleton = () => {
                       <tbody>
                         <tr>
                           <td>
-                            <div class="skeleton">
-                              <div class="skeleton-left">
-                                <div class="square"></div>
+                            <div className="skeleton">
+                              <div className="skeleton-left">
+                                <div className="square"></div>
                               </div>
-                              <div class="skeleton-right">
-                              <div class="line"></div>
-                              <div class="line-two"></div>
+                              <div className="skeleton-right">
+                              <div className="line"></div>
+                              <div className="line-two"></div>
                               </div>
                             </div>
                           </td>
@@ -55,13 +55,13 @@ export const Skeleton = () => {
                       <tbody>
                         <tr>
                           <td>
-                            <div class="skeleton">
-                              <div class="skeleton-left">
-                                <div class="square"></div>
+                            <div className="skeleton">
+                              <div className="skeleton-left">
+                                <div className="square"></div>
                               </div>
-                              <div class="skeleton-right">
-                              <div class="line"></div>
-                              <div class="line-two"></div>
+                              <div className="skeleton-right">
+                              <div className="line"></div>
+                              <div className="line-two"></div>
                               </div>
                             </div>
                           </td>
@@ -88,12 +88,12 @@ export const Skeleton = () => {
                 </h3>
               </div>
               <div className="block">
-                <div class="skeleton">
-                  <div class="skeleton-left">
-                    <div class="square circle"></div>
+                <div className="skeleton">
+                  <div className="skeleton-left">
+                    <div className="square circle"></div>
                   </div>
-                  <div class="skeleton-right">
-                    <div class="line"></div>
+                  <div className="skeleton-right">
+                    <div className="line"></div>
                     </div>
                   </div>
                 </div>
@@ -108,11 +108,11 @@ export const Skeleton = () => {
                 </div>
               </div>
               <div className="block mt-5 pt-3">
-                <div class="skeleton">
-                  <div class="skeleton-right">
-                    <div class="line"></div>
-                    <div class="line"></div>
-                    <div class="line-three"></div>
+                <div className="skeleton">
+                  <div className="skeleton-right">
+                    <div className="line"></div>
+                    <div className="line"></div>
+                    <div className="line-three"></div>
                   </div>
                 </div>
               </div>

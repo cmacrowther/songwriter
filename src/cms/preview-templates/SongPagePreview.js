@@ -11,8 +11,6 @@ const SongPagePreview = ({ entry, getAsset }) => {
 
   const song_id = data.url.split("track/").pop().split("?")[0];
 
-  console.log("This is the song id: " + song_id);
-
   const [token, setToken] = useState([]);
   useEffect(() => { setToken() }, [] )
 
@@ -48,7 +46,6 @@ export default SongPagePreview
 
 const TrackData = (props) => {
   const { data } = useTrack(props.song)
-  console.log(data);
   return (
     <div className="card ml-6 mr-6">
       <div className="card-image">

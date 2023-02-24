@@ -3,6 +3,9 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { graphql, StaticQuery } from "gatsby";
 import { useArtist, useTrack } from 'react-spotify-api';
+import AudioPlayer from 'react-h5-audio-player';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
 
 var songs;
 var artists;
@@ -12,6 +15,9 @@ export const SongDataTemplate = (props) => {
   const itemsPerPage = 10;
   const [counter, setCounter] = useState(0);
   useEffect(() => { setCounter(itemsPerPage) }, [itemsPerPage] )
+
+  const [current_song, setCurrentSong] = useState("");
+  useEffect(() => { setCurrentSong() }, [] )
 
   const { edges: posts } = props.data.allMarkdownRemark;
 
@@ -25,13 +31,11 @@ export const SongDataTemplate = (props) => {
   const songs_call = GetTracks(song_ids);
   if (songs_call) {
     songs = songs_call;
-    songs_call.tracks.map((track)=>{
-      track.artists.map((artist)=>{
-        if (!artists_ids.contains(artist.id)) {
-          artists_ids.push(artist.id);
-        }
-      })
-    })
+    songs_call.tracks.map((track)=>(
+      track.artists.map((artist)=>(
+        !doesContain(artists_ids, artist.id) ? artists_ids.push(artist.id) : false
+      ))
+    ))
   }
 
   const artists_call = GetArtists(artists_ids);
@@ -43,6 +47,24 @@ export const SongDataTemplate = (props) => {
     <div>
       <section className="songs section section--gradient">
         <div className="container">
+          <div id="audio-bar">
+            <AudioPlayer
+              src={current_song}
+              layout="horizontal-reverse"
+              showJumpControls={false}
+              customVolumeControls={[]}
+              customAdditionalControls={[]}
+              autoPlayAfterSrcChange={true}
+              customIcons={{
+                play: (
+                  <FontAwesomeIcon size="sm" color={props.color} icon={solid('circle-play')} style={{ verticalAlign: '10px' }} />
+                ),
+                pause: (
+                  <FontAwesomeIcon size="sm" color={props.color} icon={solid('circle-pause')} style={{ verticalAlign: '10px' }} />
+                )
+              }}
+            />
+          </div>
           <div className="columns is-desktop">
             <div className="column is-two-thirds-desktop m-4">
               <div className="content">
@@ -65,9 +87,12 @@ export const SongDataTemplate = (props) => {
                             <div className="album level is-mobile media">
                               <div className="level-left">
                                 <div className="media-left">
-                                  <figure className="album-art image ml-0 mr-0 is-96x96">
+                                  <button className="album-art image ml-0 mr-0 is-96x96" onClick={() => setCurrentSong(songs?.tracks[0].preview_url)} onKeyDown={() => setCurrentSong(songs?.tracks[0].preview_url)}>
                                     <img alt={songs?.tracks[0].name} src={songs?.tracks[0].album.images[0].url} />
-                                  </figure>
+                                    <div className="control-hover">
+                                      <FontAwesomeIcon size="3x" color="white" icon={solid('circle-play')} />
+                                    </div>
+                                  </button>
                                 </div>
                                 <div className="media-content">
                                   <p className="title has-text-weight-bold mb-5 is-6 is-6 is-size-6-mobile"><a className="song-link" href={songs?.tracks[0].external_urls.spotify}>{songs?.tracks[0].name}</a></p>
@@ -101,18 +126,20 @@ export const SongDataTemplate = (props) => {
                       </thead>
                       <tbody>
                         {
-                          songs?.tracks.map(function (track, index, array) { 
-
+                          songs?.tracks.map(function (track, index) { 
                             return (
                               index < counter ?
-                              <tr>
+                              <tr key={index}>
                                 <td style={{ minWidth: '500px' }}>
                                   <div className="album level is-mobile media">
                                     <div className="level-left">
                                       <div className="media-left">
-                                        <figure className="album-art image ml-0 mr-0 is-96x96">
+                                        <button className="album-art image ml-0 mr-0 is-96x96" onClick={() => setCurrentSong(track.preview_url)} onKeyDown={() => setCurrentSong(track.preview_url)}>
                                           <img alt={track.name} src={track.album.images[0].url} />
-                                        </figure>
+                                          <div className="control-hover">
+                                            <FontAwesomeIcon size="3x" color="white" icon={solid('circle-play')} />
+                                          </div>
+                                        </button>
                                       </div>
                                       <div className="media-content">
                                         <p className="title has-text-weight-bold mb-5 is-6 is-6 is-size-6-mobile"><a className="song-link" href={track.external_urls.spotify}>{track.name}</a></p>
@@ -155,10 +182,10 @@ export const SongDataTemplate = (props) => {
 
               <div className="block artist-list">
                 {
-                  artists?.artists.map(function (artist, index, array) { 
+                  artists?.artists.map(function (artist, index) { 
                     
                     return (
-                      <a href={artist.external_urls.spotify} className="collaborator media mb-0 mt-0 is-borderless is-mobile level">
+                      <a key={index} href={artist.external_urls.spotify} className="collaborator media mb-0 mt-0 is-borderless is-mobile level">
                         <div className="level-left">
                           <div className="media-left">
                             <figure className="image is-rounded is-48x48">
@@ -197,13 +224,12 @@ export const SongDataTemplate = (props) => {
 };
 
 SongDataTemplate.propTypes = {
-    data: PropTypes.shape({
-      allMarkdownRemark: PropTypes.shape({
-        edges: PropTypes.array,
-      }),
+  data: PropTypes.shape({
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.array,
     }),
-  }
-  
+  }),
+} 
 
 export default function SongData(props) {
   return (
@@ -244,8 +270,8 @@ export default function SongData(props) {
   );
 }
 
-Array.prototype.contains = function(element){
-  return this.indexOf(element) > -1;
+function doesContain(array, element){
+  return array.indexOf(element) > -1;
 };
 
 function GetTracks(song_idsP) {

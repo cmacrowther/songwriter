@@ -24,7 +24,7 @@ export default function Hero(props) {
                 <div className="column p-5 is-12">
                   <div style={{width: "100%"}}>
                     <div className="level navbar-brand">
-                      <a className="level-left navbar-item ml-0 pl-0" style={{color: pickSubtitleColor(theme_color)}}>
+                      <a href="/" className="level-left navbar-item ml-0 pl-0" style={{color: pickSubtitleColor(theme_color)}}>
                         <h1 className="has-text-weight-light is-size-5">Songwriter<FontAwesomeIcon className="pl-1" size="1x" icon={brands('js')} /></h1>
                       </a>
                       <a href="/admin" className="admin-login level-right button has-text-weight-semibold mt-1 is-info" style={{backgroundColor: shadeColor(theme_color, -10) }}>
@@ -64,7 +64,7 @@ export default function Hero(props) {
                 {subtitle}
               </p>
               <div className="tags are-small is-centered">
-                {tags.map(function (value, index, array) { return (<span className="tag is-info" style={{backgroundColor: shadeColor(theme_color, -10)}}>{value}</span>)})}
+                {tags.map(function (value, index) { return (<span key={index} className="tag is-info" style={{backgroundColor: shadeColor(theme_color, -10)}}>{value}</span>)})}
               </div>
             </div> 
           </div>
@@ -98,7 +98,7 @@ export default function Hero(props) {
                       {subtitle}
                     </p> 
                     <div className="tags are-medium">
-                      {tags.map(function (value, index, array) { return (<span className="tag is-info" style={{backgroundColor: shadeColor(theme_color, -10)}}>{value}</span>)})}
+                      {tags.map(function (value, index, array) { return (<span key={index} className="tag is-info" style={{backgroundColor: shadeColor(theme_color, -10)}}>{value}</span>)})}
                     </div>
                   </div>
                 </div>

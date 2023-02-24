@@ -47,6 +47,7 @@ export const IndexPageTemplate = ({
         managed={managed}
         additional={additional}
         email={email}
+        color={color}
         isCms={isCms} />
       <Footer 
         spotify={spotify}
