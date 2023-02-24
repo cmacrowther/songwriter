@@ -3,6 +3,7 @@ import { encode as base64_encode } from 'base-64';
 import { SpotifyApiContext } from 'react-spotify-api';
 import SongData from "../components/SongData";
 import Skeleton from "../components/Skeleton";
+import Error from "../components/Error";
 
 const client_id = process.env.GATSBY_SPOTIFY_CLIENT_ID;
 const client_secret = process.env.GATSBY_SPOTIFY_CLIENT_SECRET;
@@ -14,7 +15,9 @@ export default class SpotifyData extends Component {
   }
 
   state = {
-    token: ""
+    token: "",
+    error: "",
+    description: ""
   };
 
   componentDidMount() {
@@ -22,25 +25,48 @@ export default class SpotifyData extends Component {
   }
 
   getData() {
-    Token().then(AuthToken => 
+    if (!this.props.title) {
+      const error = "Error encountered retrieving data from the CMS";
+      const description = "This error can be rectified by accessing the admin panel and updating your 'Site Settings'"
+      this.setState({error: error, description: description})
+      return
+    }
+
+    Token().then(credentials => 
       setTimeout(() => {
-        this.setState({token: AuthToken})
+        if (credentials.access_token) {
+          this.setState({token: credentials.access_token})
+        } else {
+          const preamble = "Error encountered while generating Spotify Token: ";
+          this.setState({error: preamble + credentials.error, description: credentials.error_description})
+        }
       }, 1000)
     );
   }
 
   render() {
-    return this.state.token && !this.props.isCms
-      ? 
-      <SpotifyApiContext.Provider value={this.state.token}>
-        <SongData 
-          managed={this.props.managed}
-          additional={this.props.additional}
-          email={this.props.email} />
-      </SpotifyApiContext.Provider>
-      : 
-      <Skeleton />
+    return this.state.token && !this.props.isCms ?  renderSongData(this.props, this.state.token) : renderSkeleton(this.state.error, this.state.description);
   }
+}
+
+function renderSkeleton(error, description) {
+  return (
+    <div>
+      { error ? <Error error={error} description={description} /> : <div></div> }
+      <Skeleton />
+    </div>
+  )
+}
+
+function renderSongData(props, token) {
+  return (
+    <SpotifyApiContext.Provider value={token}>
+      <SongData 
+        managed={props.managed}
+        additional={props.additional}
+        email={props.email} />
+    </SpotifyApiContext.Provider>
+  )
 }
 
 async function Token() {
@@ -60,8 +86,8 @@ async function GetAuthTokenAsync() {
   })
   .then((response) => response.json())
   .then(function (credentials) {
-      return credentials.access_token;
+      return credentials;
     }).catch((err) => {
-    console.log(err.message);
+      console.log(err);
   });
 }
