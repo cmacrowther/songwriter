@@ -19,7 +19,10 @@ const SongPagePreview = ({ entry, getAsset }) => {
   if(!token) {
     Token().then(credentials => 
       setToken(credentials.access_token)
-    );
+    ).then(function() {
+      console.log("this triggered");
+      const forceUpdate = () => React.useState({})[1].bind(null, {}) 
+    });
   }
 
   if (data) {
