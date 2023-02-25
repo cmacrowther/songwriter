@@ -8,9 +8,14 @@
     
 ###
 
+[Access the live demo](https://songwriter.netlify.app/)
+
+###
+
 Songwriter is a static-site template that serves as a personal portfolio of a musician's songwriting credits and collaborations. It is inspired by the [Spotify Songwriter](https://artists.spotify.com/en/blog/songwriter-pages) pages that are currently only available to popular/mainstream artists such as Justin Trantor, Meghan Trainor and Missy Elliot.
 
 You can deploy directly to Netlify using the badge above.
+
 
 # Table of contents
 
@@ -23,17 +28,31 @@ You can deploy directly to Netlify using the badge above.
 [(Back to top)](#table-of-contents)
 
 ## Deploy to Netlify
-1. [Click here](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://gitlab.com/cmacrowther/songwriter) to deploy this project to Netlify
-1. Follow the steps within Netlify
 1. Signup/Login to [Spotify for Developers](https://developer.spotify.com/dashboard)
-
+1. Create a new application and take note of the Client ID and Client Secret
+1. Deploy the template to Netlify [clicking here](https://app.netlify.com/start/deploy?repository=https://gitlab.com/cmacrowther/songwriter). 
+1. Enter the Spotify Client ID and Secret when prompted.
+1. Allow the application to fully build and deploy
+1. In Netlify, go to Site Settings > Identity and enable it
+1. Under Identity settings, add an External Provider
+1. Under Identity settings, enable Git Gateway and connect it to your repository
 
 ## Local Development
 ```sh
 npm install
 touch .env.development
 ```
-TODO: Finish steps
+1. Signup/Login to [Spotify for Developers](https://developer.spotify.com/dashboard)
+1. Create a new application and take note of the Client ID and Client Secret
+1. Enter/populate the following environment variables in `.env.devlopment`:
+```
+GATSBY_SPOTIFY_CLIENT_ID=
+GATSBY_SPOTIFY_CLIENT_SECRET=
+```
+4. Then run the following
+```sh
+gatsby develop
+```
 
 # Contributing
 
