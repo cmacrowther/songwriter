@@ -9,6 +9,10 @@ const client_secret = process.env.GATSBY_SPOTIFY_CLIENT_SECRET;
 const SongPagePreview = ({ entry, getAsset }) => {
   const data = entry.getIn(['data']).toJS()
 
+  if(!data) {
+    console.log("no data");
+  }
+
   const song_id = data.url.split("track/").pop().split("?")[0];
 
   const [token, setToken] = useState([]);

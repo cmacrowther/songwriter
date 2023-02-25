@@ -45,7 +45,7 @@ export const SongDataTemplate = (props) => {
   if (songs) {
     posts.forEach(({ node: post }) => {
       songs.tracks.forEach((track, index)=> {
-        if (post.frontmatter.url.split("track/").pop().split("?")[0] === track.id  && post.frontmatter.file?.relativePath) {
+        if (post.frontmatter.url.split("track/").pop().split("?")[0] == track.id  && post.frontmatter.file?.relativePath) {
           const file = "/img/" + post.frontmatter.file.relativePath;
           songs.tracks[index].preview_url = file;
         }
@@ -53,7 +53,6 @@ export const SongDataTemplate = (props) => {
     });
   }
 
-  //sort by release date
   songs?.tracks.sort(compare);
 
   return (
@@ -79,7 +78,7 @@ export const SongDataTemplate = (props) => {
                       <tbody>
                         <tr className="album-row">
                           <td className="album-column">
-                            <div className={`album level is-mobile media ${current_song === songs?.tracks[0].preview_url ? "is-playing" : ""}`}>
+                            <div className={`album level is-mobile media ${current_song == songs?.tracks[0].preview_url ? "is-playing" : ""}`}>
                               <div className="album-content level-left">
                                 <div className="media-left">
                                   <button className="album-art image ml-0 mr-0 is-96x96" onClick={() => setCurrentSong(songs?.tracks[0].preview_url)} onKeyDown={() => setCurrentSong(songs?.tracks[0].preview_url)}>
@@ -93,7 +92,7 @@ export const SongDataTemplate = (props) => {
                                   <p className="title has-text-weight-bold mb-5 is-6 is-6 is-size-6-mobile"><a className="song-link" href={songs?.tracks[0].external_urls.spotify}>{songs?.tracks[0].name}</a></p>
                                   <p className="subtitle has-text-grey is-6 is-6 is-size-6-mobile"><a className="song-link" href={songs?.tracks[0].artists[0].external_urls.spotify}>{songs?.tracks[0].artists[0].name}</a></p>
                                   {
-                                    current_song === songs?.tracks[0].preview_url ? (
+                                    current_song == songs?.tracks[0].preview_url ? (
                                       <AudioElement src={current_song} />
                                     ) : (
                                       <></>
@@ -130,10 +129,10 @@ export const SongDataTemplate = (props) => {
                         {
                           songs?.tracks.map(function (track, index) { 
                             return (
-                              (index < counter && index !== 0) ?
+                              (index < counter && index != 0) ?
                               <tr className="album-row" key={index}>
                                 <td className="album-column">
-                                  <div className={`album level is-mobile media ${current_song === track.preview_url ? "is-playing" : ""}`}>
+                                  <div className={`album level is-mobile media ${current_song == track.preview_url ? "is-playing" : ""}`}>
                                     <div className="album-content level-left">
                                       <div className="media-left">
                                         <button className="album-art image ml-0 mr-0 is-96x96" onClick={() => setCurrentSong(track.preview_url)} onKeyDown={() => setCurrentSong(track.preview_url)}>
@@ -147,7 +146,7 @@ export const SongDataTemplate = (props) => {
                                         <p className="title has-text-weight-bold mb-5 is-6 is-6 is-size-6-mobile"><a className="song-link" href={track.external_urls.spotify}>{track.name}</a></p>
                                         <p className="subtitle has-text-grey is-6 is-6 is-size-6-mobile"><a className="song-link" href={track.artists[0].external_urls.spotify}>{track.artists[0].name}</a></p>
                                         {
-                                          current_song === track.preview_url ? (
+                                          current_song == track.preview_url ? (
                                             <AudioElement src={current_song} />
                                           ) : (
                                             <></>
@@ -213,7 +212,7 @@ export const SongDataTemplate = (props) => {
               <div className="block mt-5 pt-3">
                 <div className="field is-grouped">
                   <div className="control">
-                    <button className="button is-success has-text-weight-bold is-mobile is-rounded">Listen on Spotify</button>
+                    <a href={props.playlist} className="button is-success has-text-weight-bold is-mobile is-rounded">Listen on Spotify</a>
                   </div>
                   <div className="control">
                     <a href={ 'mailto:' + props.email }><button className="button has-text-weight-bold is-rounded">Contact</button></a>
@@ -307,6 +306,7 @@ export default function SongData(props) {
                             managed={props.managed}
                             additional={props.additional}
                             email={props.email}
+                            playlist={props.playlist}
                             data={data} 
                             count={count} />
       }
@@ -329,9 +329,9 @@ function GetArtists(artists_idsP) {
 }
 
 function compare(a, b) {
-  if (a.album.release_date > b.album.release_date)
+  if (a.l_name < b.l_name)
     return -1;
-  if (a.album.release_date < b.album.release_date)
+  if (a.l_name > b.l_name)
     return 1;
   return 0;
 }
