@@ -3,8 +3,8 @@
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
 ###
-[![Deploy with Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://gitlab.com/cmacrowther/songwriter#GATSBY_SPOTIFY_CLIENT_SECRET=specialuniquevalue&GATSBY_SPOTIFY_CLIENT_SECRET=specialuniquevalue)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgitlab.com%2Fcmacrowther%2Fsongwriter&env=GATSBY_SPOTIFY_CLIENT_ID,GATSBY_SPOTIFY_CLIENT_SECRET&envDescription=Spotify%20Developer%20Client%20ID%20and%20Secret&project-name=songwriter&repository-name=songwriter)
+[![Deploy with Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://gitlab.com/cmacrowther/songwriter)
+
     
 ###
 
@@ -22,11 +22,18 @@ You can deploy directly to Netlify using the badge above.
 
 [(Back to top)](#table-of-contents)
 
+## Deploy to Netlify
+1. [Click here](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://gitlab.com/cmacrowther/songwriter) to deploy this project to Netlify
+1. Follow the steps within Netlify
+1. Signup/Login to [Spotify for Developers](https://developer.spotify.com/dashboard)
+
+
+## Local Development
 ```sh
 npm install
-npm run develop
+touch .env.development
 ```
-
+TODO: Finish steps
 
 # Contributing
 
