@@ -33,7 +33,7 @@ export default class SpotifyData extends Component {
     }
 
     if(!this.state.token) {
-      Token().then(credentials => 
+      GetToken().then(credentials => 
         setTimeout(() => {
           if (credentials.access_token) {
             this.setState({token: credentials.access_token})
@@ -72,7 +72,7 @@ function renderSongData(props, token) {
   )
 }
 
-async function Token() {
+async function GetToken() {
   const token = await GetAuthTokenAsync();
   return token;
 }

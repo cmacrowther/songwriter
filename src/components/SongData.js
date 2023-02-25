@@ -24,24 +24,39 @@ export const SongDataTemplate = (props) => {
   const song_ids = [];
   const artists_ids = [];
 
-  posts.map(({ node: post })=>(
-    song_ids.push(post.frontmatter.url.split("track/").pop().split("?")[0])
-  ))
+  posts.map(({ node: post })=>(song_ids.push(post.frontmatter.url.split("track/").pop().split("?")[0])))
 
+  //get track data
   const songs_call = GetTracks(song_ids);
   if (songs_call) {
     songs = songs_call;
-    songs_call.tracks.map((track)=>(
-      track.artists.map((artist)=>(
+    songs_call.tracks.forEach((track)=>(
+      track.artists.forEach((artist)=>(
         !doesContain(artists_ids, artist.id) ? artists_ids.push(artist.id) : false
       ))
     ))
   }
 
+  //get artist data
   const artists_call = GetArtists(artists_ids);
-  if (artists_call) {
-    artists = artists_call;
+  if (artists_call) artists = artists_call;
+
+  //bind local file data
+  if (songs) {
+    posts.forEach(({ node: post }) => {
+      songs.tracks.forEach((track, index)=> {
+        if (post.frontmatter.url.split("track/").pop().split("?")[0] == track.id  && post.frontmatter.file?.relativePath) {
+          const file = "/img/" + post.frontmatter.file.relativePath;
+          console.log(file);
+          songs.tracks[index].preview_url = file;
+        }
+      })
+    });
   }
+
+  //sort by release date
+  songs?.tracks.sort(compare);
+  console.log(songs?.tracks);
 
   return (
     <div>
@@ -69,7 +84,7 @@ export const SongDataTemplate = (props) => {
                             <div className={`album level is-mobile media ${current_song == songs?.tracks[0].preview_url ? "is-playing" : ""}`}>
                               <div className="album-content level-left">
                                 <div className="media-left">
-                                  <button className="album-art image ml-0 mr-0 is-96x96" onClick={() => setCurrentSong(posts[0]?.frontmatter?.file ? posts[0].frontmatter.file?.relativePath : songs?.tracks[0].preview_url)} onKeyDown={() => setCurrentSong(songs?.tracks[0].preview_url)}>
+                                  <button className="album-art image ml-0 mr-0 is-96x96" onClick={() => setCurrentSong(songs?.tracks[0].preview_url)} onKeyDown={() => setCurrentSong(songs?.tracks[0].preview_url)}>
                                     <img alt={songs?.tracks[0].name} src={songs?.tracks[0].album.images[0].url} />
                                     <div className="control-hover">
                                       <FontAwesomeIcon size="3x" color="white" icon={solid('circle-play')} />
@@ -77,7 +92,7 @@ export const SongDataTemplate = (props) => {
                                   </button>
                                 </div>
                                 <div className="media-content">
-                                  <p className="title has-text-weight-bold mb-5 is-6 is-6 is-size-6-mobile"><a className="song-link" href={songs?.tracks[0].external_urls.spotify}>{songs?.tracks[0].name}{posts[0]?.frontmatter?.file.relativePath}</a></p>
+                                  <p className="title has-text-weight-bold mb-5 is-6 is-6 is-size-6-mobile"><a className="song-link" href={songs?.tracks[0].external_urls.spotify}>{songs?.tracks[0].name}</a></p>
                                   <p className="subtitle has-text-grey is-6 is-6 is-size-6-mobile"><a className="song-link" href={songs?.tracks[0].artists[0].external_urls.spotify}>{songs?.tracks[0].artists[0].name}</a></p>
                                   {
                                     current_song == songs?.tracks[0].preview_url ? (
@@ -220,7 +235,7 @@ export const SongDataTemplate = (props) => {
 };
 
 function AudioElement(src) {
-  console.log(src)
+  console.log(src);
   return (
     <div id="audio-bar">
       <AudioPlayer
@@ -314,4 +329,12 @@ function GetTracks(song_idsP) {
 function GetArtists(artists_idsP) {
   const { data } = useArtist(artists_idsP)
   return data;
+}
+
+function compare(a, b) {
+  if (a.album.release_date > b.album.release_date)
+    return -1;
+  if (a.album.release_date < b.album.release_date)
+    return 1;
+  return 0;
 }
