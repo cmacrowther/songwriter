@@ -55,3 +55,4 @@ collections:
           - { label: "Apple Music URL", hint: "URL to link to your Apple Music content", required: false, name: "apple", widget: "string" }
           - { label: "Instagram URL", hint: "URL to link to your Instagram content", required: false, name: "instagram", widget: "string" }
           - { label: "Bandcamp URL", hint: "URL to link to your Bandcamp content", required: false, name: "bandcamp", widget: "string" }
+          - { label: "Playlist URL", hint: "Add a custom Spotify playlist URL", required: false, name: "playlist", widget: "string" }

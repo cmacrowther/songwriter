@@ -22,6 +22,7 @@ export const IndexPageTemplate = ({
   apple,
   instagram,
   bandcamp,
+  playlist,
   isCms,
 }) => {
   const heroImage = getImage(image) || image;
@@ -48,6 +49,7 @@ export const IndexPageTemplate = ({
         additional={additional}
         email={email}
         color={color}
+        playlist={playlist}
         isCms={isCms} />
       <Footer 
         spotify={spotify}
@@ -71,6 +73,7 @@ IndexPageTemplate.propTypes = {
   color: PropTypes.string,
   spotify: PropTypes.string,
   bandcamp: PropTypes.string,
+  playlist: PropTypes.string
 };
 
 const IndexPage = ({ data }) => {
@@ -91,6 +94,7 @@ const IndexPage = ({ data }) => {
         spotify={frontmatter.spotify}
         apple={frontmatter.apple}
         instagram={frontmatter.instagram}
+        playlist={frontmatter.playlist}
       />
     </Layout>
   );
@@ -118,6 +122,7 @@ export const pageQuery = graphql`
         apple
         instagram
         bandcamp
+        playlist
       }
     }
   }

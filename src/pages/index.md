@@ -14,5 +14,6 @@ email: cmacrowther@gmail.com
 spotify: ye
 apple: ye
 instagram: ye
-bandcamp: ye
+bandcamp: test
+playlist: test
 ---
