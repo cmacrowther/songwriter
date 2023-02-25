@@ -2,8 +2,8 @@
 templateKey: index-page
 title: Dave Grohl
 subtitle: Musician from Los Angeles, California
-image: /img/dave-grohl-extras.webp
-color: "#fd465d"
+image: /img/dave.png
+color: "#f36a6c"
 tags:
   - Songwriter
   - Singer
