@@ -4,6 +4,8 @@
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
 ###
 [![Deploy with Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://gitlab.com/cmacrowther/songwriter)
+###
+[![Netlify Status](https://api.netlify.com/api/v1/badges/77eb81ae-893c-4808-9efb-80df7d8e87a3/deploy-status)](https://app.netlify.com/sites/songwriter/deploys)
 
     
 ###
