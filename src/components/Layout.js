@@ -12,12 +12,14 @@ export default class Layout extends React.Component{
   }
 
   state = {
-    color: 'black'
+    color: '#2b2523'
   }
 
   listenScrollEvent = e => {
-    if (window.scrollY > 100) {
-      this.setState({color: 'black'})
+    const title = document.querySelector('.hero-body');
+
+    if (window.scrollY > title.offsetTop) {
+      this.setState({color: '#2b2523'})
     } else {
       this.setState({color: this.children.props.color})
     }

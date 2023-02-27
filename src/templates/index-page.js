@@ -28,7 +28,7 @@ export const IndexPageTemplate = ({
   const heroImage = getImage(image) || image;
 
   return (
-    <div>
+    <div className="body-scroll">
       {
         isCms?
         <div className="notification mb-0 is-warning has-text-centered">
@@ -78,9 +78,9 @@ IndexPageTemplate.propTypes = {
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
-
+  
   return (
-    <Layout color={frontmatter.color}>
+    <Layout>
       <IndexPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}
