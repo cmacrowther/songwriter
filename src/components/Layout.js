@@ -13,7 +13,6 @@ const TemplateWrapper = ({ children }) => {
         <html lang="en" />
         <title>{title}</title>
         <meta name="description" content={description} />
-        <meta name="theme-color" content="#378b2e"></meta>
         <link
           rel="apple-touch-icon"
           sizes="180x180"
