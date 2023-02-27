@@ -44,17 +44,9 @@ export default function Hero(props) {
             <div className="column is-12 has-text-centered">
               <figure className="image is-128x128 is-inline-block has-text-centered mb-3">
               {img?.url ? (
-                <img
-                  alt="Artist"
-                  src={img}
-                  className="is-rounded"
-                />
+                <div className="artist-image" style={{ backgroundImage: "url(" + img + ")" }} />
               ) : (
-                <img
-                  alt="Artist"
-                  src={getSrc(img)}
-                  className="is-rounded"
-                />
+                <div className="artist-image" style={{ backgroundImage: "url(" + getSrc(img) + ")" }} />
               )}
               </figure>
               <p className="title has-text-weight-bold is-size-2" style={{color: pickTitleColor(theme_color)}}>
@@ -75,19 +67,11 @@ export default function Hero(props) {
                 <div className="level-left" style={{width: "100%"}}>
                   <div className="media-left pr-4">
                     <figure className="image is-256x256">
-                      {img?.url ? (
-                        <img
-                          alt="Artist"
-                          src={img}
-                          className="is-rounded"
-                        />
-                      ) : (
-                        <img
-                          alt="Artist"
-                          src={getSrc(img)}
-                          className="is-rounded"
-                        />
-                      )}
+                    {img?.url ? (
+                      <div className="artist-image" style={{ backgroundImage: "url(" + img + ")" }} />
+                    ) : (
+                      <div className="artist-image" style={{ backgroundImage: "url(" + getSrc(img) + ")" }} />
+                    )}
                     </figure>
                   </div>
                   <div className="media-content">

@@ -197,7 +197,7 @@ export const SongDataTemplate = (props) => {
                         <div className="level-left">
                           <div className="media-left">
                             <figure className="image is-rounded is-48x48">
-                              <img alt={artist.name} className="is-rounded" src={artist.images[0].url} />
+                              <div class="artist-image" style={{ backgroundImage: "url(" + artist.images[0].url + ")" }} />
                             </figure>
                           </div>
                           <div className="media-content">
