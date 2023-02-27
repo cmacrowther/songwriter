@@ -16,21 +16,23 @@ export default class Layout extends React.Component{
   }
 
   listenScrollEvent = e => {
-    const title = document.querySelector('.hero-body');
+    const title = document.querySelector('.songs');
 
     if (window.scrollY > title.offsetTop) {
-      this.setState({color: '#2b2523'})
+      this.setState({color: '#2b2523'});
     } else {
-      this.setState({color: this.children.props.color})
+      this.setState({color: this.children.props.color});
     }
   }
 
   componentDidMount() {
+    this.setState({color: this.children.props.color});
     window.addEventListener('scroll', this.listenScrollEvent)
   }
 
   render() {
     const title = "Songwriter.js • " + this.children.props.title;
+
     return(
       <div>
         <Helmet>
