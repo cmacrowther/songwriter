@@ -46,7 +46,7 @@ export const SongDataTemplate = (props) => {
     posts.forEach(({ node: post }) => {
       songs.tracks.forEach((track, index)=> {
         if (post.frontmatter.url.split("track/").pop().split("?")[0] == track.id  && post.frontmatter.file?.relativePath) {
-          const file = "/img/" + post.frontmatter.file.relativePath;
+          const file = "/songs/" + post.frontmatter.file.relativePath;
           songs.tracks[index].preview_url = file;
         }
       })
