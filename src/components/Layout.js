@@ -40,6 +40,7 @@ export default class Layout extends React.Component{
           <title>{title}</title>
           <meta name="description" content={title} />
           <meta name="theme-color" content={this.state.color}></meta>
+          <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"></meta>
           <link
             rel="apple-touch-icon"
             sizes="180x180"
