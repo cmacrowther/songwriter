@@ -23,17 +23,30 @@ You can deploy directly to Netlify using the badge above.
 [(Back to top)](#table-of-contents)
 
 ## Deploy to Netlify
-1. [Click here](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://gitlab.com/cmacrowther/songwriter) to deploy this project to Netlify
-1. Follow the steps within Netlify
 1. Signup/Login to [Spotify for Developers](https://developer.spotify.com/dashboard)
-
+1. Create a new application and take note of the Client ID and Client Secret
+1. Deploy the template to Netlify by [clicking here](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://gitlab.com/cmacrowther/songwriter). Enter the Spotify Client ID and Secret when prompted.
+1. Allow the application to fully build and deploy
+1. In Netlify, go to Site Settings > Identity and enable it
+1. Under Identity settings, add an External Provider
+1. Under Identity settings, enable Git Gateway and connect it to your repository
 
 ## Local Development
 ```sh
 npm install
 touch .env.development
 ```
-TODO: Finish steps
+1. Signup/Login to [Spotify for Developers](https://developer.spotify.com/dashboard)
+1. Create a new application and take note of the Client ID and Client Secret
+1. Enter/populate the following environment variables in `.env.devlopment`:
+```
+GATSBY_SPOTIFY_CLIENT_ID=
+GATSBY_SPOTIFY_CLIENT_SECRET=
+```
+1. Then run the following
+```sh
+gatsby develop
+```
 
 # Contributing
 
