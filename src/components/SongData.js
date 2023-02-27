@@ -81,12 +81,20 @@ export const SongDataTemplate = (props) => {
                             <div className={`album level is-mobile media ${current_song == songs?.tracks[0].preview_url && (songs?.tracks[0].preview_url != null) ? "is-playing" : ""}`}>
                               <div className="album-content level-left">
                                 <div className="media-left">
-                                  <button className="album-art image ml-0 mr-0 is-96x96" onClick={() => setCurrentSong(songs?.tracks[0].preview_url)} onKeyDown={() => setCurrentSong(songs?.tracks[0].preview_url)}>
-                                    <img alt={songs?.tracks[0].name} src={songs?.tracks[0].album.images[0].url} />
-                                    <div className="control-hover">
-                                      <FontAwesomeIcon size="3x" color="white" icon={solid('circle-play')} />
-                                    </div>
-                                  </button>
+                                  {
+                                    songs?.tracks[0].preview_url ? (
+                                      <button className="album-art image ml-0 mr-0 is-96x96" onClick={() => setCurrentSong(songs?.tracks[0].preview_url)} onKeyDown={() => setCurrentSong(songs?.tracks[0].preview_url)}>
+                                        <img alt={songs?.tracks[0].name} src={songs?.tracks[0].album.images[0].url} />
+                                        <div className="control-hover">
+                                          <FontAwesomeIcon size="3x" color="white" icon={solid('circle-play')} />
+                                        </div>
+                                      </button>
+                                    ) : (
+                                      <button className="album-art no-preview image ml-0 mr-0 is-96x96">
+                                        <img alt={songs?.tracks[0].name} src={songs?.tracks[0].album.images[0].url} />
+                                      </button>
+                                    )
+                                  }
                                 </div>
                                 <div className="media-content">
                                   <p className="title has-text-weight-bold mb-5 is-6 is-6 is-size-6-mobile"><a className="song-link" href={songs?.tracks[0].external_urls.spotify}>{songs?.tracks[0].name}</a></p>
@@ -135,12 +143,20 @@ export const SongDataTemplate = (props) => {
                                   <div className={`album level is-mobile media ${current_song == track.preview_url && (track.preview_url != null) ? "is-playing" : ""}`}>
                                     <div className="album-content level-left">
                                       <div className="media-left">
-                                        <button className="album-art image ml-0 mr-0 is-96x96" onClick={() => setCurrentSong(track.preview_url)} onKeyDown={() => setCurrentSong(track.preview_url)}>
-                                          <img alt={track.name} src={track.album.images[0].url} />
-                                          <div className="control-hover">
-                                            <FontAwesomeIcon size="3x" color="white" icon={solid('circle-play')} />
-                                          </div>
-                                        </button>
+                                        {
+                                          track.preview_url ? (
+                                            <button className="album-art image ml-0 mr-0 is-96x96" onClick={() => setCurrentSong(track.preview_url)} onKeyDown={() => setCurrentSong(track.preview_url)}>
+                                              <img alt={track.name} src={track.album.images[0].url} />
+                                              <div className="control-hover">
+                                                <FontAwesomeIcon size="3x" color="white" icon={solid('circle-play')} />
+                                              </div>
+                                            </button>
+                                          ) : (
+                                            <button className="album-art no-preview image ml-0 mr-0 is-96x96">
+                                              <img alt={track.name} src={track.album.images[0].url} />
+                                            </button>
+                                          )
+                                        }      
                                       </div>
                                       <div className="media-content">
                                         <p className="title has-text-weight-bold mb-5 is-6 is-6 is-size-6-mobile"><a className="song-link" href={track.external_urls.spotify}>{track.name}</a></p>
@@ -191,7 +207,6 @@ export const SongDataTemplate = (props) => {
               <div className="block artist-list">
                 {
                   artists?.artists.map(function (artist, index) { 
-                    
                     return (
                       <a key={index} href={artist.external_urls.spotify} className="collaborator media mb-0 mt-0 is-borderless is-mobile level">
                         <div className="level-left">
