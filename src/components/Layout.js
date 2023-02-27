@@ -12,7 +12,7 @@ export default class Layout extends React.Component{
   }
 
   state = {
-    color: '#2b2523'
+    color: this.children?.props.color
   }
 
   listenScrollEvent = e => {
