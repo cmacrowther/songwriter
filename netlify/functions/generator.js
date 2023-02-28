@@ -4,8 +4,7 @@ const fs = require('fs')
 
 exports.handler = async function (event, context) {
   // Use local Chrome when testing.
-  let localChrome = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
-  let executable = fs.existsSync(localChrome) ? localChrome : chromium.executablePath
+  let executable = chromium.executablePath;
 
   // Launch Chrome.
   const browser = await puppeteer.launch({
@@ -18,8 +17,10 @@ exports.handler = async function (event, context) {
 
   let page = await browser.newPage()
 
+  console.log(__dirname + '/assets/image.html');
   // Read the template HTML off of disk.
-  let content = fs.readFileSync(__dirname + '/assets/image.html').toString()
+  let content = fs.readFileSync('./assets/image.html').toString()
+  
 
   content = populateTemplate(content, {
     // Get the title out of the querystring.
