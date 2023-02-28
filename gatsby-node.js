@@ -10,7 +10,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
     
     type Frontmatter @infer {
-      file: File @fileByRelativePath,
+      songurl: String,
     }
   `
   createTypes(typeDefs)

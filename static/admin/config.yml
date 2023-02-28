@@ -28,7 +28,7 @@ collections:
         }
       - { label: "Song Name", name: "song", hint: "Name of the song", widget: "string" }
       - { label: "Spotify URL", name: "url", hint: "Spotify track URL", widget: "string" }
-      - { label: "Song File", name: "file", hint: "Song file, please upload MP3 only", media_folder: "songs", widget: "file", required: false, pattern: ['*\.(mp3|MP3)', "Uploaded file must be an MP3"] }
+      - { label: "Song File URL", name: "songurl", hint: "Song file, please upload MP3 only", widget: "string", required: false }
 
   - name: "settings"
     label: "Site Settings"
