@@ -15,7 +15,7 @@ export default function Hero(props) {
   const theme_color = color;
 
   return (
-    <section className="hero is-medium" style={{backgroundColor: theme_color}}>
+    <section className="hero is-medium" style={{background: 'linear-gradient(356deg, ' + theme_color + ' 0%, ' + shadeColor(theme_color, 20) + ' 100%)'}}>
       <div className="hero-head">
         <nav className="navbar">
           <section className="section mt-0 mb-0 pt-0 pb-0" style={{width: "100%"}}>
