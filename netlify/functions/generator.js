@@ -21,6 +21,11 @@ exports.handler = async function (event, context) {
   // Read the template HTML off of disk.
   let content = fs.readFileSync(__dirname + '/assets/image.html').toString()
 
+  content = populateTemplate(content, {
+    // Get the title out of the querystring.
+    title: event.queryStringParameters?.title
+  })
+
   await page.setContent(content, {
     waitUntil: 'domcontentloaded',
   })
