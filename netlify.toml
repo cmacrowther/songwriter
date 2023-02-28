@@ -5,6 +5,7 @@
   NODE_VERSION = "14.15.0"
   YARN_VERSION = "1.22.4"
   YARN_FLAGS = "--no-ignore-optional"
+  AWS_LAMBDA_JS_RUNTIME = "nodejs12.x"
 [template.environment]
   GATSBY_SPOTIFY_CLIENT_ID = "This is your Spotify Client ID"
   GATSBY_SPOTIFY_CLIENT_SECRET = "This is your Spotify Client Secret"
