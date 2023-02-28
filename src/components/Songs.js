@@ -45,7 +45,6 @@ export const SongDataTemplate = (props) => {
   if (songs) {
     posts.forEach(({ node: post }) => {
       songs.tracks.forEach((track, index)=> {
-        console.log(post.frontmatter.songurl)
         if (post.frontmatter.url.split("track/").pop().split("?")[0] === track.id && post.frontmatter.songurl) {
           songs.tracks[index].preview_url = post.frontmatter.songurl;
         }

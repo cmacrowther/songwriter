@@ -1,12 +1,9 @@
 import * as React from "react";
-import Layout from "../components/layouts/Layout";
 
 const NotFoundPage = () => (
-  <Layout>
-    <div>
-      <h1>Resource Not Found</h1>
-    </div>
-  </Layout>
+  <div>
+    <h1>Resource Not Found</h1>
+  </div>
 );
 
 export default NotFoundPage;

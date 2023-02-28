@@ -2,7 +2,7 @@ import React from "react";
 import { getSrc  } from "gatsby-plugin-image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { brands } from '@fortawesome/fontawesome-svg-core/import.macro'
-import { ColorHelper } from "../utils/ColorHelper.js"
+import ColorHelper from "../utils/ColorHelper.js"
 
 export default function Hero(props) {
   const {

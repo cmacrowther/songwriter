@@ -3,12 +3,11 @@ import { Helmet } from "react-helmet";
 import "../../styles/all.sass";
 import '../../styles/styles.css';
 import { withPrefix } from "gatsby";
-import { ColorHelper } from "../../utils/ColorHelper.js"
+import ColorHelper from "../../utils/ColorHelper.js"
 
 export default class Layout extends React.Component{
   constructor({ children }) {
     super();
-    this.props = children.props;
     this.children = children;
   }
 
