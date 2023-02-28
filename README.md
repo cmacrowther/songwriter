@@ -32,12 +32,13 @@ You can deploy directly to Netlify using the badge above.
 ## Deploy to Netlify
 1. Signup/Login to [Spotify for Developers](https://developer.spotify.com/dashboard)
 1. Create a new application and take note of the Client ID and Client Secret
-1. Deploy the template to Netlify [clicking here](https://app.netlify.com/start/deploy?repository=https://gitlab.com/cmacrowther/songwriter). 
-1. Enter the Spotify Client ID and Secret when prompted.
+1. Deploy the template to Netlify [clicking here](https://app.netlify.com/start/deploy?repository=https://gitlab.com/cmacrowther/songwriter)
+1. Enter the Spotify Client ID and Secret when prompted
 1. Allow the application to fully build and deploy
 1. In Netlify, go to Site Settings > Identity and enable it
 1. Under Identity settings, add an External Provider
 1. Under Identity settings, enable Git Gateway and connect it to your repository
+    1. **OPTIONAL** I would recommend creating your own project access token that does not expire. Make sure to give Maintainer/Owner level rights
 
 ## Local Development
 ```sh
@@ -55,6 +56,12 @@ GATSBY_SPOTIFY_CLIENT_SECRET=
 ```sh
 gatsby develop
 ```
+
+# Usage
+
+Once deployed you can view the application. Login to the CMS using your OAuth credentials and start adding songs using Spotify links. 
+
+By default, Songwriter.js will use the 30-second Spotify preview. ***Beta Feature:*** Alternatively, you can provide a link to an MP3 file if you would rather Songwriter.js be able to play entire songs.
 
 # Contributing
 

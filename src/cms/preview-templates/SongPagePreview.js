@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { encode as base64_encode } from 'base-64';
 import { useTrack, SpotifyApiContext } from 'react-spotify-api'
-import "../../components/all.sass";
+import "../../styles/all.sass";
 
 const client_id = process.env.GATSBY_SPOTIFY_CLIENT_ID;
 const client_secret = process.env.GATSBY_SPOTIFY_CLIENT_SECRET;

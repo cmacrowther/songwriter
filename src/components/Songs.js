@@ -285,7 +285,7 @@ SongDataTemplate.propTypes = {
   }),
 } 
 
-export default function SongData(props) {
+export default function Songs(props) {
   return (
     <StaticQuery
       query={graphql`

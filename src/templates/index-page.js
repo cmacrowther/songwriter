@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
-import SpotifyData from "../components/SpotifyData";
-import Layout from "../components/Layout";
+import SpotifyContext from "../context/SpotifyContext";
+import Layout from "../components/layouts/Layout";
 import Hero from "../components/Hero";
 import Footer from "../components/Footer";
 
@@ -43,7 +43,7 @@ export const IndexPageTemplate = ({
         img={heroImage} 
         color={color} 
         tags={tags} />
-      <SpotifyData 
+      <SpotifyContext 
         title={title} 
         managed={managed}
         additional={additional}

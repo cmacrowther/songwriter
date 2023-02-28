@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { encode as base64_encode } from 'base-64';
 import { SpotifyApiContext } from 'react-spotify-api';
-import SongData from "../components/SongData";
+import Songs from "../components/Songs";
 import Skeleton from "../components/Skeleton";
 import Error from "../components/Error";
 
@@ -63,7 +63,7 @@ function renderSkeleton(error, description) {
 function renderSongData(props, token) {
   return (
     <SpotifyApiContext.Provider value={token}>
-      <SongData 
+      <Songs 
         color={props.color}
         managed={props.managed}
         additional={props.additional}

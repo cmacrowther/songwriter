@@ -1,8 +1,9 @@
 import React from 'react'
 import { Helmet } from "react-helmet";
-import "./all.sass";
-import './styles.css';
+import "../../styles/all.sass";
+import '../../styles/styles.css';
 import { withPrefix } from "gatsby";
+import { ColorHelper } from "../../utils/ColorHelper.js"
 
 export default class Layout extends React.Component{
   constructor({ children }) {
@@ -12,7 +13,7 @@ export default class Layout extends React.Component{
   }
 
   state = {
-    color: shadeColor(this.children?.props.color, 20)
+    color: ColorHelper.shadeColor(this.children?.props.color, 20)
   }
 
   listenScrollEvent = e => {
@@ -22,12 +23,12 @@ export default class Layout extends React.Component{
     if (window.scrollY > title.offsetTop) {
       this.setState({color: '#2b2523'});
     } else {
-      this.setState({color: shadeColor(this.children.props.color, percentage)});
+      this.setState({color: ColorHelper.shadeColor(this.children.props.color, percentage)});
     }
   }
 
   componentDidMount() {
-    this.setState({color: shadeColor(this.children.props.color, 20)});
+    this.setState({color: ColorHelper.shadeColor(this.children.props.color, 20)});
     window.addEventListener('scroll', this.listenScrollEvent)
   }
 
@@ -71,33 +72,4 @@ export default class Layout extends React.Component{
       </div>
      )
    }
-}
-
-function shadeColor(color, percent) {
-
-  if (color) {
-    var R = parseInt(color.substring(1,3),16);
-    var G = parseInt(color.substring(3,5),16);
-    var B = parseInt(color.substring(5,7),16);
-
-    R = parseInt(R * (100 + percent) / 100);
-    G = parseInt(G * (100 + percent) / 100);
-    B = parseInt(B * (100 + percent) / 100);
-
-    R = (R<255)?R:255;  
-    G = (G<255)?G:255;  
-    B = (B<255)?B:255;  
-
-    R = Math.round(R)
-    G = Math.round(G)
-    B = Math.round(B)
-
-    var RR = ((R.toString(16).length===1)?"0"+R.toString(16):R.toString(16));
-    var GG = ((G.toString(16).length===1)?"0"+G.toString(16):G.toString(16));
-    var BB = ((B.toString(16).length===1)?"0"+B.toString(16):B.toString(16));
-
-    return "#"+RR+GG+BB;
-  } else {
-    return null;
-  } 
 }
