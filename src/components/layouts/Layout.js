@@ -64,7 +64,7 @@ export default class Layout extends React.Component{
           <meta property="og:url" content="/" />
           <meta
             property="og:image"
-            content={`${withPrefix("/")}assets/og-image.jpg`}
+            content={window.location.origin + `${withPrefix("/")}assets/og-image.png`}
           />
         </Helmet>
         <div>{this.children}</div>
