@@ -17,9 +17,8 @@ exports.handler = async function (event, context) {
 
   let page = await browser.newPage()
 
-  console.log(__dirname + '/assets/image.html');
   // Read the template HTML off of disk.
-  let content = fs.readFileSync('./assets/image.html').toString()
+  let content = fs.readFileSync(__dirname + '/assets/image.html').toString()
   
 
   content = populateTemplate(content, {
