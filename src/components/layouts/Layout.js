@@ -5,6 +5,8 @@ import '../../styles/styles.css';
 import { withPrefix } from "gatsby";
 import ColorHelper from "../../utils/ColorHelper.js"
 
+const site_url = process.env.GATSBY_SITE_URL ? process.env.GATSBY_SITE_URL: "";
+
 export default class Layout extends React.Component{
   constructor({ children }) {
     super();
@@ -64,7 +66,7 @@ export default class Layout extends React.Component{
           <meta property="og:url" content="/" />
           <meta
             property="og:image"
-            content={'https://songwriter.netlify.app' + `${withPrefix("/")}assets/og-image.png`}
+            content={site_url + `${withPrefix("/")}assets/og-image.png`}
           />
         </Helmet>
         <div>{this.children}</div>

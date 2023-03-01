@@ -49,8 +49,9 @@ touch .env.development
 1. Create a new application and take note of the Client ID and Client Secret
 1. Enter/populate the following environment variables in `.env.devlopment`:
 ```
-GATSBY_SPOTIFY_CLIENT_ID=
-GATSBY_SPOTIFY_CLIENT_SECRET=
+GATSBY_SPOTIFY_CLIENT_ID=**ENTER CLIENT ID**
+GATSBY_SPOTIFY_CLIENT_SECRET=**ENTER SECRET**
+GATSBY_SITE_URL=http://localhost:8000/
 ```
 4. Then run the following
 ```sh
