@@ -39,7 +39,7 @@ export default class Layout extends React.Component{
         <Helmet>
           <html lang="en" />
           <title>{title}</title>
-          <meta name="description" content={title} />
+          <meta name="description" content={title + " on SongwriterJS"} />
           <meta name="theme-color" content={this.state.color}></meta>
           <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"></meta>
           <link
@@ -64,7 +64,7 @@ export default class Layout extends React.Component{
           <meta property="og:url" content="/" />
           <meta
             property="og:image"
-            content={window.location.origin + `${withPrefix("/")}assets/og-image.png`}
+            content={'https://songwriter.netlify.app' + `${withPrefix("/")}assets/og-image.png`}
           />
         </Helmet>
         <div>{this.children}</div>
