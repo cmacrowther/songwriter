@@ -65,7 +65,7 @@ loadImage("static/" + fileData.attributes.image).then((image) => {
   lineHeight = fontSize * 1.175
   textArtistY = 375
   textTitleY = textArtistY + 65
-  context.font = `normal 42pt SegoeBlack`
+  context.font = `normal 42pt Segoe UI Black`
   context.textAlign = 'left'
   context.textBaseline = 'top'
   context.fillRect(550, 90, 700, 500)
@@ -79,7 +79,7 @@ loadImage("static/" + fileData.attributes.image).then((image) => {
     810,
     lineHeight
   )
-  context.font = `normal 36pt SegoeLight`
+  context.font = `lighter 36pt Segoe UI Light`
   context.fillStyle = pickSubtitleColor(fileData.attributes.color)
   context.textAlign = "center";
   wrapText(
