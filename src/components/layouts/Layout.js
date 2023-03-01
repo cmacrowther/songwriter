@@ -35,13 +35,13 @@ export default class Layout extends React.Component{
 
   render() {
     const title = "Songwriter.js • " + this.children.props.title;
-
+    const description = this.children.props.subtitle + ". View their entire profile on SongwriterJS."
     return(
       <div>
         <Helmet>
           <html lang="en" />
           <title>{title}</title>
-          <meta name="description" content={title + " on SongwriterJS"} />
+          <meta name="description" content={description} />
           <meta name="theme-color" content={this.state.color}></meta>
           <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"></meta>
           <link
@@ -63,11 +63,17 @@ export default class Layout extends React.Component{
           />
           <meta property="og:type" content="business.business" />
           <meta property="og:title" content={title} />
-          <meta property="og:url" content="/" />
-          <meta
-            property="og:image"
-            content={site_url + `${withPrefix("/")}assets/og-image.png`}
+          <meta property="og:url" content={site_url} />
+          <meta property="og:description" content={description}></meta>
+          <meta property="og:image" content={site_url + `${withPrefix("/")}assets/og-image.png`}
           />
+
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta property="twitter:domain" content={site_url} />
+          <meta property="twitter:url" content={site_url} />
+          <meta name="twitter:title" content={title} />
+          <meta name="twitter:description" content={description} />
+          <meta name="twitter:image" content={site_url + `${withPrefix("/")}assets/og-image.png` />
         </Helmet>
         <div>{this.children}</div>
       </div>
