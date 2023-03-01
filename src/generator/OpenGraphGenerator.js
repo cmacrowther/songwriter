@@ -93,6 +93,9 @@ loadImage("static/" + fileData.attributes.image).then((image) => {
     810,
     lineHeight
   )
+
+  replace('./static/assets/js-square.svg', pickSubtitleColor(fileData.attributes.color))
+
   loadImage('./static/assets/js-square.svg').then((data) => {
     context.drawImage(data, 375, 450, 45, 50)
   }).then(function() {
@@ -130,6 +133,12 @@ favico_16_context.arc(8, 8, 2, 0, 2 * Math.PI)
 favico_16_context.fill()
 const favico_16_buffer = favico_16_canvas.toBuffer('image/png')
 fs.writeFileSync('./static/assets/favicon-16x16.png', favico_16_buffer)
+
+function replace(path, color) {
+  var fileContent = fs.readFileSync(path, 'utf8');
+  fileContent = fileContent.replace(/#000001/g, color);
+  fs.writeFileSync(path, fileContent);
+}
 
 function pickTitleColor(bgColor) {
   if (bgColor) {

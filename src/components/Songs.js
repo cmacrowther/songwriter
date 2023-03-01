@@ -25,7 +25,8 @@ export const SongDataTemplate = (props) => {
   const artists_ids = [];
 
   posts.map(({ node: post })=>(song_ids.push(post.frontmatter.url.split("track/").pop().split("?")[0])))
-
+  const number_words = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"]
+  const song_count = song_ids.length > 10 ? song_ids.length : number_words[song_ids.length] 
   //get track data
   const songs_call = GetTracks(song_ids);
   if (songs_call) {
@@ -124,7 +125,7 @@ export const SongDataTemplate = (props) => {
                     <table className="table is-fullwidth">
                       <thead>
                         <tr>
-                          <th className="has-text-weight-bold is-vcentered is-size-5">{song_ids.length} songs written</th>
+                          <th className="has-text-weight-bold is-vcentered is-size-5">{song_count} songs written</th>
                           <th className="is-size-7 has-text-grey has-text-weight-normal is-vcentered is-uppercase">
                             <span className="is-hidden-mobile">
                               Release date
