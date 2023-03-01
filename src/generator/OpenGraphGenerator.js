@@ -39,7 +39,7 @@ loadImage('static/' + fileData.attributes.image).then((image) => {
   const gradient = context.createLinearGradient(0, 630, 0, 0)
 
   // Add three color stops
-  gradient.addColorStop(0, shadeColor(fileData.attributes.color, 20))
+  gradient.addColorStop(0, shadeColor(fileData.attributes.color, 35))
   gradient.addColorStop(1, fileData.attributes.color)
 
   // Set the fill style and draw a rectangle
