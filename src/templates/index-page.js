@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { graphql } from "gatsby";
-import { getImage } from "gatsby-plugin-image";
-import SpotifyContext from "../context/SpotifyContext";
-import Layout from "../components/layouts/Layout";
-import Hero from "../components/Hero";
-import Footer from "../components/Footer";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
+import { getImage } from 'gatsby-plugin-image'
+import SpotifyContext from '../context/SpotifyContext'
+import Layout from '../components/layouts/Layout'
+import Hero from '../components/Hero'
+import Footer from '../components/Footer'
 
 /* eslint-disable */
 
@@ -25,41 +25,43 @@ export const IndexPageTemplate = ({
   playlist,
   isCms,
 }) => {
-  const heroImage = getImage(image) || image;
+  const heroImage = getImage(image) || image
 
   return (
     <div className="body-scroll">
-      {
-        isCms?
+      {isCms ? (
         <div className="notification mb-0 is-warning has-text-centered">
-          This is a preview only. Spotify data is unable to load within this preview.
+          This is a preview only. Spotify data is unable to load within this
+          preview.
         </div>
-        :
+      ) : (
         <></>
-      }
-      <Hero 
-        title={title} 
-        subtitle={subtitle} 
-        img={heroImage} 
-        color={color} 
-        tags={tags} />
-      <SpotifyContext 
-        title={title} 
+      )}
+      <Hero
+        title={title}
+        subtitle={subtitle}
+        img={heroImage}
+        color={color}
+        tags={tags}
+      />
+      <SpotifyContext
+        title={title}
         managed={managed}
         additional={additional}
         email={email}
         color={color}
         playlist={playlist}
-        isCms={isCms} />
-      <Footer 
+        isCms={isCms}
+      />
+      <Footer
         spotify={spotify}
         apple={apple}
         instagram={instagram}
-        bandcamp={bandcamp} />
+        bandcamp={bandcamp}
+      />
     </div>
-  );
-};
-
+  )
+}
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
@@ -73,12 +75,12 @@ IndexPageTemplate.propTypes = {
   color: PropTypes.string,
   spotify: PropTypes.string,
   bandcamp: PropTypes.string,
-  playlist: PropTypes.string
-};
+  playlist: PropTypes.string,
+}
 
 const IndexPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark;
-  
+  const { frontmatter } = data.markdownRemark
+
   return (
     <Layout>
       <IndexPageTemplate
@@ -97,10 +99,10 @@ const IndexPage = ({ data }) => {
         playlist={frontmatter.playlist}
       />
     </Layout>
-  );
-};
+  )
+}
 
-export default IndexPage;
+export default IndexPage
 
 export const pageQuery = graphql`
   query IndexPageTemplate {
@@ -126,4 +128,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

@@ -9,19 +9,19 @@ const IndexPagePreview = ({ entry, getAsset }) => {
     return (
       <div>
         <IndexPageTemplate
-        image={getAsset(data.image)}
-        title={data.title}
-        subtitle={data.subtitle}
-        color={data.color}
-        tags={data.tags}
-        managed={data.managed}
-        email={data.email}
-        additional={data.additional}
-        spotify={data.spotify}
-        instagram={data.instagram}
-        apple={data.apple}
-        bandcamp={data.bandcamp}
-        isCms={true}
+          image={getAsset(data.image)}
+          title={data.title}
+          subtitle={data.subtitle}
+          color={data.color}
+          tags={data.tags}
+          managed={data.managed}
+          email={data.email}
+          additional={data.additional}
+          spotify={data.spotify}
+          instagram={data.instagram}
+          apple={data.apple}
+          bandcamp={data.bandcamp}
+          isCms={true}
         />
       </div>
     )
