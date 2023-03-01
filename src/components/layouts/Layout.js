@@ -73,7 +73,7 @@ export default class Layout extends React.Component{
           <meta property="twitter:url" content={site_url} />
           <meta name="twitter:title" content={title} />
           <meta name="twitter:description" content={description} />
-          <meta name="twitter:image" content={site_url + `${withPrefix("/")}assets/og-image.png` />
+          <meta name="twitter:image" content={site_url + `${withPrefix("/")}assets/og-image.png`} />
         </Helmet>
         <div>{this.children}</div>
       </div>
