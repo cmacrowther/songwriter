@@ -1,4 +1,4 @@
-# Songwriter
+# SongwriterJS
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
@@ -62,7 +62,7 @@ gatsby develop
 
 Once deployed you can view the application. Login to the CMS using your OAuth credentials and start adding songs using Spotify links. 
 
-By default, Songwriter.js will use the 30-second Spotify preview. ***Beta Feature:*** Alternatively, you can provide a link to an MP3 file if you would rather Songwriter.js be able to play entire songs.
+By default, Songwriter.js will use the 30-second Spotify preview. ***Beta Feature:*** Alternatively, you can provide a link to an MP3 file if you would rather SongwriterJS be able to play entire songs.
 
 # Contributing
 

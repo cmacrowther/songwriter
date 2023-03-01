@@ -4,7 +4,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: 'Songwriter.js',
+    title: 'SongwriterJS',
     description:
       'A personal portfolio of songwriting credits and collaborations',
   },

@@ -38,7 +38,7 @@ export default class Layout extends React.Component {
   }
 
   render() {
-    const title = 'Songwriter.js • ' + this.children.props.title
+    const title = 'SongwriterJS • ' + this.children.props.title
     const description =
       this.children.props.subtitle +
       '. View their entire profile on SongwriterJS.'

@@ -29,7 +29,7 @@ export default function Error(props) {
             </p>
           </div>
           <p className="mt-5 mb-3 has-text-weight-light is-size-5">
-            Please refer to the most up-to-date README for Songwriter.js{' '}
+            Please refer to the most up-to-date SongwriterJS README
             <a href="//gitlab.com/cmacrowther/songwriter">here</a>.
           </p>
         </section>
