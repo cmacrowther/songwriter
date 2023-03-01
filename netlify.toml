@@ -9,5 +9,5 @@
 [template.environment]
   GATSBY_SPOTIFY_CLIENT_ID = "This is your Spotify Client ID (Required)"
   GATSBY_SPOTIFY_CLIENT_SECRET = "This is your Spotify Client Secret (Required)"
-  GATSBY_SITE_URL = "eg. https://songwriter.netlify.app (Optional, but needed for OpenGraph Image generation)
+  GATSBY_SITE_URL = "eg. https://songwriter.netlify.app (Optional)"
 
