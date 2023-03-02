@@ -2,7 +2,7 @@
 
 const fs = require('fs')
 const fm = require('front-matter')
-const { createCanvas, registerFont, loadImage } = require('canvas')
+const { createCanvas, GlobalFonts, loadImage } = require('@napi-rs/canvas')
 
 const fileFrontmatter = fs.readFileSync('src/pages/index.md', 'utf8')
 const fileData = fm(fileFrontmatter)
@@ -58,16 +58,13 @@ loadImage('static/' + fileData.attributes.image).then((image) => {
   context.closePath()
   context.restore()
 
-  registerFont('./static/fonts/segoeuil.ttf', {
-    family: 'SegoeLight',
-  })
-  registerFont('./static/fonts/seguibl.ttf', {
-    family: 'SegoeBlack',
-  })
+  GlobalFonts.registerFromPath('./static/fonts/seguibl.ttf', 'SegoeBlack')
+  GlobalFonts.registerFromPath('./static/fonts/segoeuil.ttf', 'SegoeLight')
+
   lineHeight = fontSize * 1.175
   textArtistY = 375
   textTitleY = textArtistY + 65
-  context.font = `normal 42pt Segoe UI Black`
+  context.font = `normal 42pt SegoeBlack`
   context.textAlign = 'left'
   context.textBaseline = 'top'
   context.fillRect(550, 90, 700, 500)
@@ -81,7 +78,7 @@ loadImage('static/' + fileData.attributes.image).then((image) => {
     810,
     lineHeight
   )
-  context.font = `lighter 36pt Segoe UI Light`
+  context.font = `lighter 36pt SegoeLight`
   context.fillStyle = pickSubtitleColor(fileData.attributes.color)
   context.textAlign = 'center'
   wrapText(context, `on Songwriter`, 230, textTitleY, 810, lineHeight)
@@ -93,7 +90,7 @@ loadImage('static/' + fileData.attributes.image).then((image) => {
 
   loadImage('./static/assets/js-square.svg')
     .then((data) => {
-      context.drawImage(data, 375, 450, 45, 50)
+      context.drawImage(data, 375, 440, 45, 50)
     })
     .then(function () {
       const buffer = canvas.toBuffer('image/png')
