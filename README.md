@@ -5,7 +5,7 @@
 ###
 [![Deploy with Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://gitlab.com/cmacrowther/songwriter)
 ###
-[![Netlify Status](https://api.netlify.com/api/v1/badges/77eb81ae-893c-4808-9efb-80df7d8e87a3/deploy-status)](https://app.netlify.com/sites/songwriter/deploys)
+[![pipeline status](https://gitlab.com/cmacrowther/songwriter/badges/main/pipeline.svg)](https://gitlab.com/cmacrowther/songwriter/-/commits/main)
 
     
 ###
