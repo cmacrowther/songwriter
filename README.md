@@ -40,6 +40,9 @@ You can deploy directly to Netlify using the badge above.
 1. Under Identity settings, enable Git Gateway and connect it to your repository
     1. **OPTIONAL** I would recommend creating your own project access token that does not expire. Make sure to give Maintainer/Owner level rights
 
+## Deploy to Vercel
+While not supported out of the box, I have successfully deployed to Vercel using [https://github.com/ublabs/netlify-cms-oauth](https://github.com/ublabs/netlify-cms-oauth).
+
 ## Local Development
 ```sh
 npm install

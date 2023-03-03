@@ -54,7 +54,7 @@ export default function Hero(props) {
                         </h1>
                       </a>
                       <a
-                        href="/admin"
+                        href="/admin/#"
                         className="admin-login level-right button has-text-weight-semibold mt-1 is-info"
                         style={{
                           backgroundColor: ColorHelper.shadeColor(
